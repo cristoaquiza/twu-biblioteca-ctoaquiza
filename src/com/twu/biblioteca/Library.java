@@ -8,7 +8,7 @@ public class Library {
     private List<Book> books;
 
     public String salute() {
-        return "Welcome to The Bangalore Public Library Management System";
+        return "## Welcome to The Bangalore Public Library Management System ##";
     }
 
     public List<Book> loadBooks() {
@@ -22,5 +22,20 @@ public class Library {
 
     public List<Book> getBooks() {
         return this.books;
+    }
+
+    public String getMenu() {
+        String menu = "";
+        menu += "*** MENU ***\n";
+        menu += "1. List Books";
+        return menu;
+    }
+
+    public String listBooks() {
+        String print = "";
+        for(int i = 0; i < this.books.size(); i++) {
+            print += (i+1) + ". " + this.books.get(i) + "\n";
+        }
+        return print;
     }
 }

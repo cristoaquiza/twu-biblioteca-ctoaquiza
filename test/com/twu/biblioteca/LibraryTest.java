@@ -3,9 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -53,5 +51,16 @@ public class LibraryTest {
     public void testBooksListFieldIsNotNull() {
         library.loadBooks();
         assertNotNull("failure - the books list is null", library.getBooks());
+    }
+
+    @Test
+    public void testToGetListBooksMenuOption() {
+        assertThat(library.getMenu().toLowerCase(), containsString("list books"));
+    }
+
+    @Test
+    public void testToListBooksInNumberedRows() {
+        library.loadBooks();
+        assertThat(library.listBooks().toLowerCase(), allOf(containsString("1."), containsString("2.")));
     }
 }
