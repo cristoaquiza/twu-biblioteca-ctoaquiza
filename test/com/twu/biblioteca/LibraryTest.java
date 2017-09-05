@@ -54,8 +54,8 @@ public class LibraryTest {
     }
 
     @Test
-    public void testToListBooksInNumberedRows() {
+    public void testThatPrintBooksIsNotEmpty() {
         library.loadBooks();
-        assertThat(library.listBooks().toLowerCase(), allOf(containsString("1."), containsString("2.")));
+        assertTrue("failure - the lenght of books print should be > 0", library.listBooks().length() > 0);
     }
 }

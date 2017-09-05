@@ -17,7 +17,7 @@ public class MenuTest {
 
     @Test
     public void testThatPrintMenuIsNotEmpty() {
-        assertTrue("failure - menu string should be > 0", menu.printMenu().length() > 0);
+        assertTrue("failure - the length of menu print should be > 0", menu.printMenu().length() > 0);
     }
 
     @Test
