@@ -26,8 +26,9 @@ public class Library {
 
     public String getMenu() {
         String menu = "";
-        menu += "*** MENU ***\n";
-        menu += "1. List Books";
+        menu += "---- MENU ----\n";
+        menu += "1. List Books\n";
+        menu += "--- END MENU ---\n";
         return menu;
     }
 
