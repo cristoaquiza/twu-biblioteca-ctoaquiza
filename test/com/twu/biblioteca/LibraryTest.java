@@ -1,22 +1,30 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.not;
 
 public class LibraryTest {
 
+    private Library library;
+
+    @Before
+    public final void setUp() {
+        library = new Library();
+    }
+
     @Test
-    public void testThatWelcomeMessageIsNotEmpty() {
-        Library library = new Library();
-        assertTrue(library.salute().length() > 0);
+    public void testThatWelcomeMessageIsNotNull() {
+        assertNotNull("Welcome message should be not null", library.salute());
     }
 
     @Test
     public void testTheContentOfTheWelcomeMessage() {
-        Library library = new Library();
         assertThat(library.salute().toLowerCase(), containsString("welcome"));
     }
 }
