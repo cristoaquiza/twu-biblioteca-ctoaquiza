@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -30,5 +31,10 @@ public class MenuTest {
     @Test
     public void checkThatTheOptionNumberOneIsAllowed() {
         assertTrue("failed - the option number ONE should be allowed", menu.doTheChoice(1));
+    }
+
+    @Test
+    public void testParserStringInputToInt() {
+        assertThat(menu.parseInputToInt("not number"), equalTo(-1));
     }
 }
