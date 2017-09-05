@@ -24,7 +24,7 @@ public class Library {
         return this.books;
     }
 
-    public String listBooks() {
+    public String printBooks() {
         String print = "";
         for(int i = 0; i < this.books.size(); i++) {
             print += (i+1) + ". " + this.books.get(i) + "\n";

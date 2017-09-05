@@ -56,6 +56,6 @@ public class LibraryTest {
     @Test
     public void testThatPrintBooksIsNotEmpty() {
         library.loadBooks();
-        assertTrue("failure - the lenght of books print should be > 0", library.listBooks().length() > 0);
+        assertTrue("failure - the lenght of books print should be > 0", library.printBooks().length() > 0);
     }
 }
