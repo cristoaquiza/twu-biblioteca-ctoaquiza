@@ -24,14 +24,6 @@ public class Library {
         return this.books;
     }
 
-    public String getMenu() {
-        String menu = "";
-        menu += "---- MENU ----\n";
-        menu += "1. List Books\n";
-        menu += "--- END MENU ---\n";
-        return menu;
-    }
-
     public String listBooks() {
         String print = "";
         for(int i = 0; i < this.books.size(); i++) {

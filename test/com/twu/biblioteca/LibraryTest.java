@@ -54,11 +54,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void testToGetListBooksMenuOption() {
-        assertThat(library.getMenu().toLowerCase(), containsString("list books"));
-    }
-
-    @Test
     public void testToListBooksInNumberedRows() {
         library.loadBooks();
         assertThat(library.listBooks().toLowerCase(), allOf(containsString("1."), containsString("2.")));
