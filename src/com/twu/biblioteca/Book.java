@@ -25,4 +25,13 @@ public class Book {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        String print = "";
+        print += "Title: " + this.title + "\t";
+        print += "Author: " + this.author + "\t";
+        print += "Year published: " + this.year + "\n";
+        return print;
+    }
 }
