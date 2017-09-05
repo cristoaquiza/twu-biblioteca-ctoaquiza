@@ -49,13 +49,11 @@ public class LibraryTest {
 
     @Test
     public void testBooksListFieldIsNotNull() {
-        library.loadBooks();
         assertNotNull("failure - the books list is null", library.getBooks());
     }
 
     @Test
     public void testThatPrintBooksIsNotEmpty() {
-        library.loadBooks();
         assertTrue("failure - the lenght of books print should be > 0", library.printBooks().length() > 0);
     }
 }

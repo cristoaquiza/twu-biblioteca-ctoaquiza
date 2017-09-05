@@ -9,10 +9,12 @@ import static org.junit.Assert.assertTrue;
 
 public class MenuTest {
     private Menu menu;
+    private Library library;
 
     @Before
     public final void setUp() {
-        menu = new Menu();
+        library = new Library();
+        menu = new Menu(library);
     }
 
     @Test
@@ -23,5 +25,10 @@ public class MenuTest {
     @Test
     public void checkThaTheMenuHasTheOptionListBooks() {
         assertThat(menu.printMenu().toLowerCase(), containsString("list books"));
+    }
+
+    @Test
+    public void checkThatTheOptionNumberOneIsAllowed() {
+        assertTrue("failed - the option number ONE should be allowed", menu.doTheChoice(1));
     }
 }
