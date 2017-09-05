@@ -15,10 +15,10 @@ public class BibliotecaApp {
         System.out.println("Enter the option number to do: ");
         Scanner read = new Scanner(System.in);
         String optionNumber = read.nextLine();
-        if(menu.parseInputToInt(optionNumber) > 0) {
-            menu.doTheChoice(menu.parseInputToInt(optionNumber));
-        } else {
-            System.out.println("This is not a number");
+
+        if(menu.parseInputToInt(optionNumber) > 0 && menu.doTheChoice(menu.parseInputToInt(optionNumber))) {}
+        else {
+            System.out.println("Select a valid option!");
         }
     }
 }
