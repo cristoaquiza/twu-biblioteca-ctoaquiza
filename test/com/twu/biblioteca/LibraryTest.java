@@ -5,9 +5,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
 
@@ -20,11 +19,22 @@ public class LibraryTest {
 
     @Test
     public void testThatWelcomeMessageIsNotNull() {
-        assertNotNull("Welcome message should be not null", library.salute());
+        assertNotNull("welcome message should be not null", library.salute());
     }
 
     @Test
     public void testTheContentOfTheWelcomeMessage() {
         assertThat(library.salute().toLowerCase(), containsString("welcome"));
     }
+
+    @Test
+    public void testTheBooksLoadDoesNotReturnNull() {
+        assertNotNull("the books load should not return a null", library.loadBooks());
+    }
+
+    @Test
+    public void testTheBooksLoadDoesNotReturnEmptyList() {
+        assertTrue("failure - the books load should return a list with size > 0", library.loadBooks().size() > 0);
+    }
+
 }
