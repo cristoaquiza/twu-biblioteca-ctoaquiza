@@ -3,9 +3,11 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
@@ -37,4 +39,13 @@ public class LibraryTest {
         assertTrue("failure - the books load should return a list with size > 0", library.loadBooks().size() > 0);
     }
 
+    @Test
+    public void testThatTheBooksLoadItemIsAnInstanceOfBook() {
+        assertThat(library.loadBooks().get(0), instanceOf(Book.class));
+    }
+
+    @Test
+    public void testThatTheBooksLoadItemHasRobinsonCrusoeBook() {
+        assertThat(library.loadBooks(), hasItem(new Book("Robinson Crusoe", "Daniel Defoe", 1719)));
+    }
 }
