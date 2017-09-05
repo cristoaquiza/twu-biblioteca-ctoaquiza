@@ -48,4 +48,10 @@ public class LibraryTest {
     public void testThatTheBooksLoadItemHasRobinsonCrusoeBook() {
         assertThat(library.loadBooks(), hasItem(new Book("Robinson Crusoe", "Daniel Defoe", 1719)));
     }
+
+    @Test
+    public void testBooksListFieldIsNotNull() {
+        library.loadBooks();
+        assertNotNull("failure - the books list is null", library.getBooks());
+    }
 }

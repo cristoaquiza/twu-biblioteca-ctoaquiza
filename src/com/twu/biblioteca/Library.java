@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Library {
 
-    private List<String> books;
+    private List<Book> books;
 
     public String salute() {
         return "Welcome to The Bangalore Public Library Management System";
@@ -16,7 +16,11 @@ public class Library {
         booksLoaded.add(new Book("Peter and Wendy", "J. M. Barrie", 1911));
         booksLoaded.add(new Book("Robinson Crusoe", "Daniel Defoe", 1719));
         booksLoaded.add(new Book("Gulliver's Travels", "Jonathan Swift", 1726));
+        this.books = booksLoaded;
         return booksLoaded;
     }
 
+    public List<Book> getBooks() {
+        return this.books;
+    }
 }
