@@ -32,12 +32,4 @@ public class Menu {
                 return false;
         }
     }
-
-    public int parseInputToInt(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException ex) {
-            return -1;
-        }
-    }
 }

@@ -34,12 +34,6 @@ public class MenuTest {
     }
 
     @Test
-    public void testParserStringInputToInt() {
-        assertThat(menu.parseInputToInt("not number"), equalTo(-1));
-        assertThat(menu.parseInputToInt("2"), equalTo(2));
-    }
-
-    @Test
     public void checkThatTheMenuHasTheOptionQuit() {
         assertThat(menu.printMenu().toLowerCase(), containsString("quit"));
     }
