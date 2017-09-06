@@ -13,6 +13,7 @@ public class Menu {
         menu += "---- MENU ----\n";
         menu += "1. List Books\n";
         menu += "2. Checkout Book\n";
+        menu += "3. Return Book\n";
         menu += "0. Quit\n";
         menu += "--- END MENU ---\n";
         return menu;
@@ -23,10 +24,16 @@ public class Menu {
             case 1:
                 System.out.print(library.printBooks());
                 return true;
-            case 0:
-                return true;
             case 2:
-                library.checkoutBook();
+                if(library.checkoutBook()) {
+                    System.out.println("Thank you! Enjoy the book");
+                } else {
+                    System.out.println("That book is not available.");
+                }
+                return true;
+            case 3:
+                return true;
+            case 0:
                 return true;
             default:
                 return false;

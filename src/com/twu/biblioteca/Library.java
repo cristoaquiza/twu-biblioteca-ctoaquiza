@@ -39,14 +39,16 @@ public class Library {
         return print;
     }
 
-    public void checkoutBook() {
+    public boolean checkoutBook() {
         System.out.print(this.printBooks());
         System.out.println("Enter the book number to checkout: ");
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
-        if(utils.parseInputToInt(bookNumber) -1 >= 0) {
+        if(utils.parseInputToInt(bookNumber)-1 >= 0 && !this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut()) {
             doCkeckOutBook(utils.parseInputToInt(bookNumber) - 1);
+            return true;
         }
+        return false;
     }
 
     public void doCkeckOutBook(int index) {

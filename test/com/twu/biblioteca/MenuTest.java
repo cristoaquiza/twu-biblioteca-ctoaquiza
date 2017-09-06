@@ -52,4 +52,14 @@ public class MenuTest {
     public void checkThatTheOptionCheckOutBookNumberTwoIsAllowedToRun() {
         assertTrue("failure - the option 'checkout book' number TWO should be allowed to run", menu.doTheChoice(2));
     }
+
+    @Test
+    public void checkThaTheMenuHasTheOptionReturnBook() {
+        assertThat(menu.printMenu().toLowerCase(), containsString("return book"));
+    }
+
+    @Test
+    public void checkThatTheOptionReturnBookNumberThreeIsAllowedToRun() {
+        assertTrue("failure - the option 'return book' number THREE should be allowed to run", menu.doTheChoice(3));
+    }
 }
