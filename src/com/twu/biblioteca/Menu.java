@@ -12,21 +12,21 @@ public class Menu {
         String menu = "";
         menu += "---- MENU ----\n";
         menu += "1. List Books\n";
+        menu += "0. Quit\n";
         menu += "--- END MENU ---\n";
         return menu;
     }
 
     public boolean doTheChoice(int optionNumber) {
-        boolean isCorrect = false;
         switch (optionNumber) {
             case 1:
                 System.out.print(library.printBooks());
-                isCorrect = true;
-                break;
+                return true;
+            case 0:
+                return true;
             default:
-                isCorrect = false;
+                return false;
         }
-        return isCorrect;
     }
 
     public int parseInputToInt(String input) {
