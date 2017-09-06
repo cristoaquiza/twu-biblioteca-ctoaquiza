@@ -61,6 +61,6 @@ public class LibraryTest {
     public void testThatTheBookChangeItsCheckoutStateFromFalseToTrue() {
         int positionOfTheBookCheckedOut = 0;
         library.doCkeckOutBook(positionOfTheBookCheckedOut);
-        assertTrue("failure - the book should be checked out", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
+        assertTrue("failure - the state book should be checkedout (true)", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
     }
 }

@@ -17,7 +17,6 @@ public class BibliotecaApp {
             System.out.println("Enter the option number to do: ");
             Scanner read = new Scanner(System.in);
             optionNumber = read.nextLine();
-
             if (utils.parseInputToInt(optionNumber) >= 0 && menu.doTheChoice(utils.parseInputToInt(optionNumber))) { }
             else { System.out.println("Select a valid option!"); }
         } while (utils.parseInputToInt(optionNumber) != 0);

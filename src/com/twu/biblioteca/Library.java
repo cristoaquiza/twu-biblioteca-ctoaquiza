@@ -2,10 +2,12 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Library {
 
     private List<Book> books;
+    private Utils utils = new Utils();
 
     public Library() {
         this.books = loadBooks();
@@ -28,14 +30,23 @@ public class Library {
     }
 
     public String printBooks() {
-        String print = "";
+        String print = "--- LIST BOOKS ---\n";
         for(int i = 0; i < this.books.size(); i++) {
-            print += (i+1) + ". " + this.books.get(i).toString() + "\n";
+            if(!this.getBooks().get(i).getCheckedOut())
+                print += (i+1) + ". " + this.books.get(i).toString() + "\n";
         }
+        print += "--- END LIST BOOKS ---\n";
         return print;
     }
 
     public void checkoutBook() {
+        System.out.print(this.printBooks());
+        System.out.println("Enter the book number to checkout: ");
+        Scanner read = new Scanner(System.in);
+        String bookNumber = read.nextLine();
+        if(utils.parseInputToInt(bookNumber) -1 >= 0) {
+            doCkeckOutBook(utils.parseInputToInt(bookNumber) - 1);
+        }
     }
 
     public void doCkeckOutBook(int index) {

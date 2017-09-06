@@ -33,7 +33,7 @@ public class Book {
         String print = "";
         print += "Title: " + this.title + "\t";
         print += "Author: " + this.author + "\t";
-        print += "Year published: " + this.year + "\n";
+        print += "Year published: " + this.year;
         return print;
     }
 
