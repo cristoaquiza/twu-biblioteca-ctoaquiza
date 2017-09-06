@@ -48,4 +48,14 @@ public class MenuTest {
     public void checkThatTheOptionQuitNumberZeroIsAllowedToRun() {
         assertTrue("failed - the option 'quit' number ZERO should be allowed to run", menu.doTheChoice(0));
     }
+
+    @Test
+    public void checkThaTheMenuHasTheOptionCheckOutBook() {
+        assertThat(menu.printMenu().toLowerCase(), containsString("checkout book"));
+    }
+
+    @Test
+    public void checkThatTheOptionCheckOutBookNumberTwoIsAllowedToRun() {
+        assertTrue("failure - the option 'checkout book' number TWO should be allowed to run", menu.doTheChoice(2));
+    }
 }

@@ -12,6 +12,7 @@ public class Menu {
         String menu = "";
         menu += "---- MENU ----\n";
         menu += "1. List Books\n";
+        menu += "2. Checkout Book\n";
         menu += "0. Quit\n";
         menu += "--- END MENU ---\n";
         return menu;
@@ -23,6 +24,8 @@ public class Menu {
                 System.out.print(library.printBooks());
                 return true;
             case 0:
+                return true;
+            case 2:
                 return true;
             default:
                 return false;
