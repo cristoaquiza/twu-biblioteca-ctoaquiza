@@ -29,12 +29,13 @@ public class MenuTest {
     }
 
     @Test
-    public void checkThatTheOptionNumberOneIsAllowed() {
-        assertTrue("failed - the option number ONE should be allowed", menu.doTheChoice(1));
+    public void checkThatTheOptionNumberOneIsAllowedToRun() {
+        assertTrue("failed - the option number ONE should be allowed to run", menu.doTheChoice(1));
     }
 
     @Test
     public void testParserStringInputToInt() {
         assertThat(menu.parseInputToInt("not number"), equalTo(-1));
+        assertThat(menu.parseInputToInt("2"), equalTo(2));
     }
 }
