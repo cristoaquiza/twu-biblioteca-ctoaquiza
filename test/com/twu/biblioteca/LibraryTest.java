@@ -56,4 +56,11 @@ public class LibraryTest {
     public void testThatPrintBooksIsNotEmpty() {
         assertTrue("failure - the lenght of books print should be > 0", library.printBooks().length() > 0);
     }
+
+    @Test
+    public void testThatTheBookChangeItsCheckoutStateFromFalseToTrue() {
+        int positionOfTheBookCheckedOut = 0;
+        library.doCkeckOutBook(positionOfTheBookCheckedOut);
+        assertTrue("failure - the book should be checked out", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
+    }
 }

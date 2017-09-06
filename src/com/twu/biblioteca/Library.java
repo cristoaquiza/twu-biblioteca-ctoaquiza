@@ -34,4 +34,11 @@ public class Library {
         }
         return print;
     }
+
+    public void checkoutBook() {
+    }
+
+    public void doCkeckOutBook(int index) {
+        this.books.get(index).setCheckedOut(true);
+    }
 }

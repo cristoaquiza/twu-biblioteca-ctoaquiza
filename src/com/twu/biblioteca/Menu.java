@@ -26,6 +26,7 @@ public class Menu {
             case 0:
                 return true;
             case 2:
+                library.checkoutBook();
                 return true;
             default:
                 return false;

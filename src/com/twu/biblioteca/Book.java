@@ -4,11 +4,13 @@ public class Book {
     private String title;
     private String author;
     private int year;
+    private boolean checkedOut;
 
     public Book(String title, String author, int year) {
         this.title = title;
         this.author = author;
         this.year = year;
+        this.checkedOut = false;
     }
 
     @Override
@@ -33,5 +35,13 @@ public class Book {
         print += "Author: " + this.author + "\t";
         print += "Year published: " + this.year + "\n";
         return print;
+    }
+
+    public boolean getCheckedOut() {
+        return checkedOut;
+    }
+
+    public void setCheckedOut(boolean checkedOut) {
+        this.checkedOut = checkedOut;
     }
 }
