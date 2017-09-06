@@ -32,6 +32,7 @@ public class Menu {
                 }
                 return true;
             case 3:
+                library.returnBook();
                 return true;
             case 0:
                 return true;

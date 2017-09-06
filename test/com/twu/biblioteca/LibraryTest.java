@@ -61,4 +61,18 @@ public class LibraryTest {
         library.doCkeckOutBook(positionOfTheBookCheckedOut);
         assertTrue("failure - the state book should be checkedout (true)", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
     }
+
+    @Test
+    public void checkToDoNotPrintBookCheckedOut() {
+        int positionOfTheBookCheckedOut = 0;
+        library.doCkeckOutBook(positionOfTheBookCheckedOut);
+        assertThat(library.printBooksChekedOut(), containsString("Peter and Wendy"));
+    }
+
+    @Test
+    public void testThatTheBookChangeItsCheckoutStateFromTrueToFalse() {
+        int positionOfTheBookCheckedOut = 0;
+        library.doReturnBook(positionOfTheBookCheckedOut);
+        assertFalse("failure - the state book should be checkedout (false)", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
+    }
 }

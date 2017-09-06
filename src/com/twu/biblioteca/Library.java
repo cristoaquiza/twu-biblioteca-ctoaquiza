@@ -54,4 +54,28 @@ public class Library {
     public void doCkeckOutBook(int index) {
         this.books.get(index).setCheckedOut(true);
     }
+
+    public String printBooksChekedOut() {
+        String print = "--- BOOKS CHECKED OUT ---\n";
+        for(int i = 0; i < this.books.size(); i++) {
+            if(this.getBooks().get(i).getCheckedOut())
+                print += (i+1) + ". " + this.books.get(i).toString() + "\n";
+        }
+        print += "--- END BOOKS CHECKED OUT ---\n";
+        return print;
+    }
+
+    public void returnBook() {
+        this.printBooksChekedOut();
+        System.out.println("Enter the book number to return: ");
+        Scanner read = new Scanner(System.in);
+        String bookNumber = read.nextLine();
+        if(utils.parseInputToInt(bookNumber)-1 >= 0) {
+            doReturnBook(utils.parseInputToInt(bookNumber) - 1);
+        }
+    }
+
+    public void doReturnBook(int index) {
+        this.books.get(index).setCheckedOut(false);
+    }
 }
