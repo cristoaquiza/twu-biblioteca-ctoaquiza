@@ -65,14 +65,16 @@ public class Library {
         return print;
     }
 
-    public void returnBook() {
-        this.printBooksChekedOut();
+    public boolean returnBook() {
+        System.out.print(this.printBooksChekedOut());
         System.out.println("Enter the book number to return: ");
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
-        if(utils.parseInputToInt(bookNumber)-1 >= 0) {
+        if(utils.parseInputToInt(bookNumber)-1 >= 0 && this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut()) {
             doReturnBook(utils.parseInputToInt(bookNumber) - 1);
+            return true;
         }
+        return false;
     }
 
     public void doReturnBook(int index) {

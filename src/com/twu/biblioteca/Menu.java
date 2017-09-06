@@ -32,7 +32,11 @@ public class Menu {
                 }
                 return true;
             case 3:
-                library.returnBook();
+                if(library.returnBook()) {
+                    System.out.println("Thank you for returning the book.");
+                } else {
+                    System.out.println("That is not a valid book to return.");
+                }
                 return true;
             case 0:
                 return true;
