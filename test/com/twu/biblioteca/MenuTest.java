@@ -29,13 +29,23 @@ public class MenuTest {
     }
 
     @Test
-    public void checkThatTheOptionNumberOneIsAllowedToRun() {
-        assertTrue("failed - the option number ONE should be allowed to run", menu.doTheChoice(1));
+    public void checkThatTheOptionListBooksNumberOneIsAllowedToRun() {
+        assertTrue("failed - the option 'list books' number ONE should be allowed to run", menu.doTheChoice(1));
     }
 
     @Test
     public void testParserStringInputToInt() {
         assertThat(menu.parseInputToInt("not number"), equalTo(-1));
         assertThat(menu.parseInputToInt("2"), equalTo(2));
+    }
+
+    @Test
+    public void checkThatTheMenuHasTheOptionQuit() {
+        assertThat(menu.printMenu().toLowerCase(), containsString("quit"));
+    }
+
+    @Test
+    public void checkThatTheOptionQuitNumberZeroIsAllowedToRun() {
+        assertTrue("failed - the option 'quit' number ZERO should be allowed to run", menu.doTheChoice(0));
     }
 }

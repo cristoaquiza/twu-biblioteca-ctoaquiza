@@ -23,6 +23,7 @@ public class Menu {
                 System.out.print(library.printBooks());
                 return true;
             case 0:
+                System.exit(0);
                 return true;
             default:
                 return false;
