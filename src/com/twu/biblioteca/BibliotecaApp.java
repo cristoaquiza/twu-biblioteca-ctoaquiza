@@ -7,6 +7,7 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Library library = new Library();
         Menu menu = new Menu(library);
+        Utils utils = new Utils();
 
         System.out.println(library.salute());
 
@@ -17,8 +18,8 @@ public class BibliotecaApp {
             Scanner read = new Scanner(System.in);
             optionNumber = read.nextLine();
 
-            if (menu.parseInputToInt(optionNumber) >= 0 && menu.doTheChoice(menu.parseInputToInt(optionNumber))) { }
+            if (utils.parseInputToInt(optionNumber) >= 0 && menu.doTheChoice(utils.parseInputToInt(optionNumber))) { }
             else { System.out.println("Select a valid option!"); }
-        } while (menu.parseInputToInt(optionNumber) != 0);
+        } while (utils.parseInputToInt(optionNumber) != 0);
     }
 }
