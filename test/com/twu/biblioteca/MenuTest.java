@@ -30,7 +30,7 @@ public class MenuTest {
 
     @Test
     public void checkThatTheOptionListBooksNumberOneIsAllowedToRun() {
-        assertTrue("failed - the option 'list books' number ONE should be allowed to run", menu.doTheChoice(1));
+        assertTrue("failure - the option 'list books' number ONE should be allowed to run", menu.doTheChoice(1));
     }
 
     @Test
