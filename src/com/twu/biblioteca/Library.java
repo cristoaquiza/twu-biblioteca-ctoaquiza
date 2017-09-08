@@ -33,7 +33,7 @@ public class Library {
         String print = "--- LIST BOOKS ---\n";
         for(int i = 0; i < this.books.size(); i++) {
             if(!this.getBooks().get(i).getCheckedOut())
-                print += (i+1) + ". " + this.books.get(i).toString() + "\n";
+                print += getNumberedBookToPrint(i);
         }
         print += "--- END LIST BOOKS ---\n";
         return print;
@@ -63,10 +63,14 @@ public class Library {
         String print = "--- BOOKS CHECKED OUT ---\n";
         for(int i = 0; i < this.books.size(); i++) {
             if(this.getBooks().get(i).getCheckedOut())
-                print += (i+1) + ". " + this.books.get(i).toString() + "\n";
+                print += getNumberedBookToPrint(i);
         }
         print += "--- END BOOKS CHECKED OUT ---\n";
         return print;
+    }
+
+    private String getNumberedBookToPrint(int i) {
+        return (i+1) + ". " + this.books.get(i).toString() + "\n";
     }
 
     public boolean returnBook() {
