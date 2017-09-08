@@ -17,7 +17,7 @@ public class LibraryTest {
 
     @Test
     public void testThatWelcomeMessageIsNotNull() {
-        assertNotNull("welcome message should be not null", library.salute());
+        assertNotNull("failure - welcome message should be not null", library.salute());
     }
 
     @Test
