@@ -66,7 +66,7 @@ public class LibraryTest {
     public void checkToDoNotPrintBookCheckedOut() {
         int positionOfTheBookCheckedOut = 0;
         library.doCkeckOutBook(positionOfTheBookCheckedOut);
-        assertThat(library.printBooksChekedOut(), containsString("Peter and Wendy"));
+        assertThat(library.getTheBooksCheckedOutReadyToPrint(), containsString("Peter and Wendy"));
     }
 
     @Test

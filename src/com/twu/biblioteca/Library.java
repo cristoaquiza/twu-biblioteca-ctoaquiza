@@ -59,7 +59,7 @@ public class Library {
         this.books.get(index).setCheckedOut(true);
     }
 
-    public String printBooksChekedOut() {
+    public String getTheBooksCheckedOutReadyToPrint() {
         String print = "--- BOOKS CHECKED OUT ---\n";
         for(int i = 0; i < this.books.size(); i++) {
             if(this.getBooks().get(i).getCheckedOut())
@@ -70,7 +70,7 @@ public class Library {
     }
 
     public boolean returnBook() {
-        System.out.print(this.printBooksChekedOut());
+        System.out.print(this.getTheBooksCheckedOutReadyToPrint());
         System.out.println("Enter the book number to return: ");
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
