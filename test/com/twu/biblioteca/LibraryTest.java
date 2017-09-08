@@ -27,7 +27,7 @@ public class LibraryTest {
 
     @Test
     public void testTheBooksLoadDoesNotReturnNull() {
-        assertNotNull("the books load should not return a null", library.loadBooks());
+        assertNotNull("failure - the books load should not return a null", library.loadBooks());
     }
 
     @Test
