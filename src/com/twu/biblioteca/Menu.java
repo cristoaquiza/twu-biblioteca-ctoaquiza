@@ -22,7 +22,7 @@ public class Menu {
     public boolean doTheChoice(int optionNumber) {
         switch (optionNumber) {
             case 1:
-                System.out.print(library.printBooks());
+                System.out.print(library.getTheBooksListReadyToPrint());
                 return true;
             case 2:
                 if(library.checkoutBook()) {

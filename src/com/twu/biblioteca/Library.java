@@ -29,7 +29,7 @@ public class Library {
         return this.books;
     }
 
-    public String printBooks() {
+    public String getTheBooksListReadyToPrint() {
         String print = "--- LIST BOOKS ---\n";
         for(int i = 0; i < this.books.size(); i++) {
             if(!this.getBooks().get(i).getCheckedOut())
@@ -40,7 +40,7 @@ public class Library {
     }
 
     public boolean checkoutBook() {
-        System.out.print(this.printBooks());
+        System.out.print(this.getTheBooksListReadyToPrint());
         System.out.println("Enter the book number to checkout: ");
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();

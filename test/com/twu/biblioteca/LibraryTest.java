@@ -52,7 +52,7 @@ public class LibraryTest {
 
     @Test
     public void testThatPrintBooksIsNotEmpty() {
-        assertTrue("failure - the lenght of books print should be > 0", library.printBooks().length() > 0);
+        assertTrue("failure - the lenght of books print should be > 0", library.getTheBooksListReadyToPrint().length() > 0);
     }
 
     @Test
