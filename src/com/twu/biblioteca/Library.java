@@ -44,14 +44,14 @@ public class Library {
         System.out.println("Enter the book number to checkout: ");
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
-        if(isTheBookNumberACheckoutedBookValid(bookNumber)) {
+        if(isTheBookNumberABookValidToCheckout(bookNumber)) {
             doCkeckOutBook(utils.parseInputToInt(bookNumber) - 1);
             return true;
         }
         return false;
     }
 
-    private boolean isTheBookNumberACheckoutedBookValid(String bookNumber) {
+    private boolean isTheBookNumberABookValidToCheckout(String bookNumber) {
         return utils.parseInputToInt(bookNumber)-1 >= 0 && !this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut();
     }
 
@@ -74,11 +74,15 @@ public class Library {
         System.out.println("Enter the book number to return: ");
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
-        if(utils.parseInputToInt(bookNumber)-1 >= 0 && this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut()) {
+        if(isTheBookNumberABookValidToReturn(bookNumber)) {
             doReturnBook(utils.parseInputToInt(bookNumber) - 1);
             return true;
         }
         return false;
+    }
+
+    private boolean isTheBookNumberABookValidToReturn(String bookNumber) {
+        return utils.parseInputToInt(bookNumber)-1 >= 0 && this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut();
     }
 
     public void doReturnBook(int index) {
