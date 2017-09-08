@@ -44,11 +44,15 @@ public class Library {
         System.out.println("Enter the book number to checkout: ");
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
-        if(utils.parseInputToInt(bookNumber)-1 >= 0 && !this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut()) {
+        if(isTheBookNumberACheckoutedBookValid(bookNumber)) {
             doCkeckOutBook(utils.parseInputToInt(bookNumber) - 1);
             return true;
         }
         return false;
+    }
+
+    private boolean isTheBookNumberACheckoutedBookValid(String bookNumber) {
+        return utils.parseInputToInt(bookNumber)-1 >= 0 && !this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut();
     }
 
     public void doCkeckOutBook(int index) {
