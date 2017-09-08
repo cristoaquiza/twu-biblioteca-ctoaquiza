@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f79900e-06f1-4bcc-a6cd-d5e7c590fb08" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,12 +21,14 @@
       <file leaf-file-name="Library.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Library.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="77" column="58" lean-forward="true" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+            <state relative-caret-position="236">
+              <caret line="77" column="25" lean-forward="false" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#222#223#0" expanded="true" />
                 <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#2775#2776#0" expanded="true" />
+                <element signature="e#2835#2836#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -515,6 +518,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#222#223#0" expanded="true" />
             <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#2775#2776#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -553,6 +558,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#222#223#0" expanded="true" />
             <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#2775#2776#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -601,6 +608,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#222#223#0" expanded="true" />
             <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#2775#2776#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -653,6 +662,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#222#223#0" expanded="true" />
             <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#2775#2776#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -698,6 +709,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#222#223#0" expanded="true" />
             <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#2775#2776#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -728,6 +741,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#222#223#0" expanded="true" />
             <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#2775#2776#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -841,12 +856,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/Library.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="77" column="58" lean-forward="true" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="58" />
+        <state relative-caret-position="236">
+          <caret line="77" column="25" lean-forward="false" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#222#223#0" expanded="true" />
             <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#2775#2776#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
           </folding>
         </state>
       </provider>

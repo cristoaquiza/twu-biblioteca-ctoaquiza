@@ -45,14 +45,14 @@ public class Library {
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
         if(isTheBookNumberABookValidToCheckout(bookNumber)) {
-            doCkeckOutBook(utils.parseInputToInt(bookNumber) - 1);
+            doCkeckOutBook(getIndexFromInput(bookNumber));
             return true;
         }
         return false;
     }
 
     private boolean isTheBookNumberABookValidToCheckout(String bookNumber) {
-        return utils.parseInputToInt(bookNumber)-1 >= 0 && !this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut();
+        return getIndexFromInput(bookNumber) >= 0 && !this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
     }
 
     public void doCkeckOutBook(int index) {
@@ -75,14 +75,18 @@ public class Library {
         Scanner read = new Scanner(System.in);
         String bookNumber = read.nextLine();
         if(isTheBookNumberABookValidToReturn(bookNumber)) {
-            doReturnBook(utils.parseInputToInt(bookNumber) - 1);
+            doReturnBook(getIndexFromInput(bookNumber));
             return true;
         }
         return false;
     }
 
+    private int getIndexFromInput(String bookNumber) {
+        return utils.parseInputToInt(bookNumber) - 1;
+    }
+
     private boolean isTheBookNumberABookValidToReturn(String bookNumber) {
-        return utils.parseInputToInt(bookNumber)-1 >= 0 && this.books.get(utils.parseInputToInt(bookNumber) - 1).getCheckedOut();
+        return getIndexFromInput(bookNumber) >= 0 && this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
     }
 
     public void doReturnBook(int index) {
