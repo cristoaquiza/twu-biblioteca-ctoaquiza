@@ -22,7 +22,7 @@ public class Book {
             return false;
         }
         Book otherBook = (Book) obj;
-        if (!otherBook.author.equals(this.author) || !otherBook.title.equals(this.title) || otherBook.year != this.year) {
+        if (!otherBook.getAuthor().equals(this.getAuthor()) || !otherBook.getTitle().equals(this.getTitle()) || otherBook.getYear() != this.getYear()) {
             return false;
         }
         return true;
@@ -43,5 +43,17 @@ public class Book {
 
     public void setCheckedOut(boolean checkedOut) {
         this.checkedOut = checkedOut;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getYear() {
+        return year;
     }
 }
