@@ -27,22 +27,22 @@ public class LibraryTest {
 
     @Test
     public void testTheBooksLoadDoesNotReturnNull() {
-        assertNotNull("failure - the books load should not return a null", library.loadBooks());
+        assertNotNull("failure - the books load should not return a null", library.getBooks());
     }
 
     @Test
     public void testTheBooksLoadDoesNotReturnEmptyList() {
-        assertTrue("failure - the books load should return a list with size > 0", library.loadBooks().size() > 0);
+        assertTrue("failure - the books load should return a list with size > 0", library.getBooks().size() > 0);
     }
 
     @Test
     public void testThatTheBooksLoadItemIsAnInstanceOfBook() {
-        assertThat(library.loadBooks().get(0), instanceOf(Book.class));
+        assertThat(library.getBooks().get(0), instanceOf(Book.class));
     }
 
     @Test
     public void testThatTheBooksLoadItemHasRobinsonCrusoeBook() {
-        assertThat(library.loadBooks(), hasItem(new Book("Robinson Crusoe", "Daniel Defoe", 1719)));
+        assertThat(library.getBooks(), hasItem(new Book("Robinson Crusoe", "Daniel Defoe", 1719)));
     }
 
     @Test
