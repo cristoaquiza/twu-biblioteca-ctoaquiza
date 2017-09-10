@@ -23,18 +23,21 @@ public class Menu {
         switch (optionNumber) {
             case 1:
                 System.out.print(library.getTheBooksListReadyToPrint());
+                break;
             case 2:
                 if(library.checkoutBook()) {
                     System.out.println("Thank you! Enjoy the book");
                 } else {
                     System.out.println("That book is not available.");
                 }
+                break;
             case 3:
                 if(library.returnBook()) {
                     System.out.println("Thank you for returning the book.");
                 } else {
                     System.out.println("That is not a valid book to return.");
                 }
+                break;
         }
     }
 }

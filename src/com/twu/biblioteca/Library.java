@@ -52,7 +52,7 @@ public class Library {
     }
 
     private boolean isTheBookNumberABookValidToCheckout(String bookNumber) {
-        return getIndexFromInput(bookNumber) >= 0 && !this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
+        return getIndexFromInput(bookNumber) >= 0 && getIndexFromInput(bookNumber) <= this.books.size() && !this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
     }
 
     public void doCkeckOutBook(int index) {
@@ -90,7 +90,7 @@ public class Library {
     }
 
     private boolean isTheBookNumberABookValidToReturn(String bookNumber) {
-        return getIndexFromInput(bookNumber) >= 0 && this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
+        return getIndexFromInput(bookNumber) >= 0 && getIndexFromInput(bookNumber) <= this.books.size() && this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
     }
 
     public void doReturnBook(int index) {
