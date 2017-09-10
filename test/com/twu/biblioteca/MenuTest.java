@@ -29,18 +29,8 @@ public class MenuTest {
     }
 
     @Test
-    public void checkThatTheOptionListBooksNumberOneIsAllowedToRun() {
-        assertTrue("failure - the option 'list books' number ONE should be allowed to run", menu.doTheChoice(1));
-    }
-
-    @Test
     public void checkThatTheMenuHasTheOptionQuit() {
         assertThat(menu.printMenu().toLowerCase(), containsString("quit"));
-    }
-
-    @Test
-    public void checkThatTheOptionQuitNumberZeroIsAllowedToRun() {
-        assertTrue("failed - the option 'quit' number ZERO should be allowed to run", menu.doTheChoice(0));
     }
 
     @Test
@@ -49,17 +39,7 @@ public class MenuTest {
     }
 
     @Test
-    public void checkThatTheOptionCheckOutBookNumberTwoIsAllowedToRun() {
-        assertTrue("failure - the option 'checkout book' number TWO should be allowed to run", menu.doTheChoice(2));
-    }
-
-    @Test
     public void checkThaTheMenuHasTheOptionReturnBook() {
         assertThat(menu.printMenu().toLowerCase(), containsString("return book"));
-    }
-
-    @Test
-    public void checkThatTheOptionReturnBookNumberThreeIsAllowedToRun() {
-        assertTrue("failure - the option 'return book' number THREE should be allowed to run", menu.doTheChoice(3));
     }
 }

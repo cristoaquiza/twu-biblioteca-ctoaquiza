@@ -22,10 +22,14 @@ public class Book {
             return false;
         }
         Book otherBook = (Book) obj;
-        if (!otherBook.getAuthor().equals(this.getAuthor()) || !otherBook.getTitle().equals(this.getTitle()) || otherBook.getYear() != this.getYear()) {
+        if (areAllOfFieldsUnEquals(otherBook)) {
             return false;
         }
         return true;
+    }
+
+    private boolean areAllOfFieldsUnEquals(Book otherBook) {
+        return !otherBook.getAuthor().equals(this.getAuthor()) || !otherBook.getTitle().equals(this.getTitle()) || otherBook.getYear() != this.getYear();
     }
 
     @Override
