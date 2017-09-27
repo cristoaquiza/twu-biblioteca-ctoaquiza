@@ -23,7 +23,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void testTheContentOfTheWelcomeMessage() {
+    public void testWelcomeMessageHasWelcomeWord() {
         assertThat(welcomeMessage, containsString("welcome"));
     }
 
