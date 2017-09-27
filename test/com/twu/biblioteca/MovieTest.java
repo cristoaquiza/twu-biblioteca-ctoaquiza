@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 public class MovieTest {
 
     @Test
-    public void testMovieToString() {
+    public void testGetMovieAsAString() {
         Movie movie = new Movie("my book");
         String movieToString = movie.toString().toLowerCase();
         assertThat(movieToString, allOf(containsString("title"), containsString("my book")));

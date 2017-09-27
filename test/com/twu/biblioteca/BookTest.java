@@ -17,8 +17,10 @@ public class BookTest {
     }
 
     @Test
-    public void testBookPrint() {
-        Book book = new Book("MyBook", "MyAuthor", 1900);
-        assertThat(book.toString().toLowerCase(), allOf(containsString("title:"), containsString("author:"), containsString("year published:")));
+    public void testGetBookAsAString() {
+        Book book = new Book("my book", "my author", 1900);
+        String bookToString = book.toString().toLowerCase();
+        assertThat(bookToString, allOf(containsString("title"), containsString("author"), containsString("year published")));
+        assertThat(bookToString, allOf(containsString("my book"), containsString("my author"), containsString("1900")));
     }
 }
