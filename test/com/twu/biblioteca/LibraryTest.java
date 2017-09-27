@@ -113,6 +113,6 @@ public class LibraryTest {
     @Test
     public void testUploadMoviesFromListAsAParameter() {
         String expectedItem = "Movie 1";
-        assertEquals("failure - bookList items should be equals", currentMovies.get(0), expectedItem);
+        assertEquals("failure - movieList items should be equals", currentMovies.get(0), expectedItem);
     }
 }
