@@ -15,11 +15,18 @@ public class LibraryTest {
     String welcomeMessage;
     List currentBooks;
     List<Movie> currentMovies;
+    List<ObjectToRent> currentObjectsToRent;
+
 
     @Before
     public void setUp() {
         welcomeMessage = Library.getWelcomeMessage().toLowerCase();
         library = new Library();
+        currentObjectsToRent= new ArrayList();
+        currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
+        currentObjectsToRent.add(new Book("Book 1", "Author 2", 1992));
+        currentObjectsToRent.add(new Movie("Movie 1"));
+        library.uploadObjectsToRent(currentObjectsToRent);
         currentBooks = new ArrayList<Book>();
         currentBooks.add(new Book("Book 0", "Author 1", 1991));
         currentBooks.add(new Book("Book 1", "Author 2", 1992));
@@ -119,5 +126,25 @@ public class LibraryTest {
     @Test
     public void testMoviesListItemIsAnInstanceOfMovie() {
         assertThat(library.getMovies().get(0), instanceOf(Movie.class));
+    }
+
+    @Test
+    public void testObjectsListItemIsAnInstanceOfBook() {
+        assertThat(library.getObjectsToRent().get(0), instanceOf(Book.class));
+    }
+
+    @Test
+    public void testObjectsListItemIsAnInstanceOfMovie() {
+        assertThat(library.getObjectsToRent().get(2), instanceOf(Movie.class));
+    }
+
+    @Test
+    public void testUploadObjectsToRentFromListAsAParameter() {
+        String expectedBook = "Book 0";
+        Book currentBook = (Book) currentObjectsToRent.get(0);
+        String expectedMovie = "Movie 1";
+        Movie currentMovie = (Movie) currentObjectsToRent.get(2);
+        assertEquals("failure - movie of objectsToRent should be equals", currentMovie.title, expectedMovie);
+        assertEquals("failure - book of objectsToRent should be equals", currentBook.getTitle(), expectedBook);
     }
 }

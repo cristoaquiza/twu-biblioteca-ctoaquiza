@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book implements ObjectToRent{
     private String title;
     private String author;
     private int year;

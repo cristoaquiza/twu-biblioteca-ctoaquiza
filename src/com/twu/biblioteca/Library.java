@@ -9,6 +9,7 @@ public class Library {
     private List<Book> books;
     private Utils utils = new Utils();
     private List<Movie> movies;
+    private List<ObjectToRent> objectsToRent;
 
     public static String getWelcomeMessage() {
         return "Welcome to The Bangalore Public Library Management System\n\t\t___ Biblioteca is available ___";
@@ -20,6 +21,14 @@ public class Library {
 
     public void setBooks(List books) {
         this.books = books;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
+    }
+
+    public void uploadObjectsToRent(List<ObjectToRent> objectsToRent) {
+        this.objectsToRent = objectsToRent;
     }
 
     public String getTheBooksListReadyToPrint() {
@@ -94,7 +103,7 @@ public class Library {
         return movies;
     }
 
-    public void setMovies(List<Movie> movies) {
-        this.movies = movies;
+    public List<ObjectToRent> getObjectsToRent() {
+        return objectsToRent;
     }
 }

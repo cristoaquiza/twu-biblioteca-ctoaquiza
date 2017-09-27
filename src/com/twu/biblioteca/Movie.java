@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Movie {
+public class Movie implements ObjectToRent {
     public String title;
 
     public Movie(String title) {
