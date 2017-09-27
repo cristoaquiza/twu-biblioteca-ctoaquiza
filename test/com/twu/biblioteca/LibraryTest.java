@@ -14,6 +14,7 @@ public class LibraryTest {
     Library library;
     String welcomeMessage;
     List currentBooks;
+    List currentMovies;
 
     @Before
     public void setUp() {
@@ -23,6 +24,10 @@ public class LibraryTest {
         currentBooks.add(new Book("Book 0", "Author 1", 1991));
         currentBooks.add(new Book("Book 1", "Author 2", 1992));
         library.setBooks(currentBooks);
+        currentMovies = new ArrayList();
+        currentMovies.add("Movie 1");
+        currentMovies.add("Movie 2");
+        library.setMovies(currentMovies);
     }
 
     @Test
@@ -103,5 +108,11 @@ public class LibraryTest {
     public void testMoviesListIsNotEmpty() {
         int lengthOfMoviesList = library.getMovies().size();
         assertTrue("failure - movieList should not be empty", lengthOfMoviesList > 0);
+    }
+
+    @Test
+    public void testUploadMoviesFromListAsAParameter() {
+        String expectedItem = "Movie 1";
+        assertEquals("failure - bookList items should be equals", currentMovies.get(0), expectedItem);
     }
 }

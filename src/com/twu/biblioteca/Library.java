@@ -94,4 +94,8 @@ public class Library {
         movies.add(new Object());
         return movies;
     }
+
+    public void setMovies(List movies) {
+        this.movies = movies;
+    }
 }
