@@ -14,7 +14,7 @@ public class LibraryTest {
     Library library;
     String welcomeMessage;
     List currentBooks;
-    List currentMovies;
+    List<Movie> currentMovies;
 
     @Before
     public void setUp() {
@@ -25,8 +25,7 @@ public class LibraryTest {
         currentBooks.add(new Book("Book 1", "Author 2", 1992));
         library.setBooks(currentBooks);
         currentMovies = new ArrayList();
-        currentMovies.add("Movie 1");
-        currentMovies.add("Movie 2");
+        currentMovies.add(new Movie("Movie 1"));
         library.setMovies(currentMovies);
     }
 
@@ -113,6 +112,12 @@ public class LibraryTest {
     @Test
     public void testUploadMoviesFromListAsAParameter() {
         String expectedItem = "Movie 1";
-        assertEquals("failure - movieList items should be equals", currentMovies.get(0), expectedItem);
+        Movie currentMovie = currentMovies.get(0);
+        assertEquals("failure - movieList items should be equals", currentMovie.title, expectedItem);
+    }
+
+    @Test
+    public void testMoviesListItemIsAnInstanceOfMovie() {
+        assertThat(library.getMovies().get(0), instanceOf(Movie.class));
     }
 }

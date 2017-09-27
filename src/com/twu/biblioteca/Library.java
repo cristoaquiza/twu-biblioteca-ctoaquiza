@@ -8,7 +8,7 @@ public class Library {
 
     private List<Book> books;
     private Utils utils = new Utils();
-    private List movies = new ArrayList();
+    private List<Movie> movies;
 
     public static String getWelcomeMessage() {
         return "Welcome to The Bangalore Public Library Management System\n\t\t___ Biblioteca is available ___";
@@ -90,12 +90,11 @@ public class Library {
         this.books.get(index).setCheckedOut(false);
     }
 
-    public List getMovies() {
-        movies.add(new Object());
+    public List<Movie> getMovies() {
         return movies;
     }
 
-    public void setMovies(List movies) {
+    public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
 }
