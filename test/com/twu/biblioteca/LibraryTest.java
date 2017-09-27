@@ -9,20 +9,22 @@ import static org.junit.Assert.*;
 public class LibraryTest {
 
     private Library library;
+    String welcomeMessage;
 
     @Before
     public final void setUp() {
+        welcomeMessage = Library.getWelcomeMessage().toLowerCase();
         library = new Library();
     }
 
     @Test
     public void testThatWelcomeMessageIsNotNull() {
-        assertNotNull("failure - welcome message should be not null", library.salute());
+        assertNotNull("failure - welcomeMessage should be not null", welcomeMessage);
     }
 
     @Test
     public void testTheContentOfTheWelcomeMessage() {
-        assertThat(library.salute().toLowerCase(), containsString("welcome"));
+        assertThat(welcomeMessage, containsString("welcome"));
     }
 
     @Test

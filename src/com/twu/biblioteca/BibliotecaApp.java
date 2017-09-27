@@ -8,7 +8,7 @@ public class BibliotecaApp {
     private static Utils utils = new Utils();
 
     public static void main(String[] args) {
-        System.out.println(library.salute());
+        System.out.println(Library.getWelcomeMessage());
 
         String optionNumber = "";
         do {

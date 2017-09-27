@@ -13,8 +13,8 @@ public class Library {
         this.books = loadBooks();
     }
 
-    public String salute() {
-        return "## Welcome to The Bangalore Public Library Management System ##";
+    public static String getWelcomeMessage() {
+        return "Welcome to The Bangalore Public Library Management System\n\t\t___ Biblioteca is available ___";
     }
 
     private List<Book> loadBooks() {
