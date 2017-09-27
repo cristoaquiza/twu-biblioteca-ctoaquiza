@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class LibraryTest {
 
-    private Library library;
+    Library library;
     String welcomeMessage;
     List currentBooks;
 
@@ -92,5 +92,16 @@ public class LibraryTest {
         int positionOfTheBookCheckedOut = 0;
         library.doReturnBook(positionOfTheBookCheckedOut);
         assertFalse("failure - the state book should be checkedout (false)", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
+    }
+
+    @Test
+    public void testMoviesListIsNotNull() {
+        assertNotNull("failure - moviesList should not be null", library.getMovies());
+    }
+
+    @Test
+    public void testMoviesListIsNotEmpty() {
+        int lengthOfMoviesList = library.getMovies().size();
+        assertTrue("failure - movieList should not be empty", lengthOfMoviesList > 0);
     }
 }
