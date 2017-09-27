@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,24 +8,16 @@ public class Library {
     private List<Book> books;
     private Utils utils = new Utils();
 
-    public Library() {
-        this.books = loadBooks();
-    }
-
     public static String getWelcomeMessage() {
         return "Welcome to The Bangalore Public Library Management System\n\t\t___ Biblioteca is available ___";
     }
 
-    private List<Book> loadBooks() {
-        List<Book> booksLoaded = new ArrayList<Book>();
-        booksLoaded.add(new Book("Peter and Wendy", "J. M. Barrie", 1911));
-        booksLoaded.add(new Book("Robinson Crusoe", "Daniel Defoe", 1719));
-        booksLoaded.add(new Book("Gulliver's Travels", "Jonathan Swift", 1726));
-        return booksLoaded;
-    }
-
     public List<Book> getBooks() {
         return this.books;
+    }
+
+    public void setBooks(List books) {
+        this.books = books;
     }
 
     public String getTheBooksListReadyToPrint() {

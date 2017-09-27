@@ -3,6 +3,9 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
@@ -10,11 +13,16 @@ public class LibraryTest {
 
     private Library library;
     String welcomeMessage;
+    List currentBooks;
 
     @Before
-    public final void setUp() {
+    public void setUp() {
         welcomeMessage = Library.getWelcomeMessage().toLowerCase();
         library = new Library();
+        currentBooks = new ArrayList<Book>();
+        currentBooks.add(new Book("Book 0", "Author 1", 1991));
+        currentBooks.add(new Book("Book 1", "Author 2", 1992));
+        library.setBooks(currentBooks);
     }
 
     @Test
@@ -28,13 +36,21 @@ public class LibraryTest {
     }
 
     @Test
-    public void testTheBooksLoadDoesNotReturnNull() {
-        assertNotNull("failure - the books load should not return a null", library.getBooks());
+    public void testBooksListIsNotNull() {
+        List books = library.getBooks();
+        assertNotNull("failure - booksList should not be null", books);
     }
 
     @Test
-    public void testTheBooksLoadDoesNotReturnEmptyList() {
-        assertTrue("failure - the books load should return a list with size > 0", library.getBooks().size() > 0);
+    public void testUploadBooksFromListAsAParameter() {
+        List expectedList = library.getBooks();
+        assertEquals("failure - bookList items should be equals", currentBooks.get(0), expectedList.get(0));
+    }
+
+    @Test
+    public void testBooksListIsNotEmpty() {
+        int lengthOfBookList = library.getBooks().size();
+        assertTrue("failure - bookList should not be empty", lengthOfBookList > 0);
     }
 
     @Test
@@ -44,7 +60,7 @@ public class LibraryTest {
 
     @Test
     public void testThatTheBooksLoadItemHasRobinsonCrusoeBook() {
-        assertThat(library.getBooks(), hasItem(new Book("Robinson Crusoe", "Daniel Defoe", 1719)));
+        assertThat(library.getBooks(), hasItem(new Book("Book 0", "Author 1", 1991)));
     }
 
     @Test
@@ -68,7 +84,7 @@ public class LibraryTest {
     public void checkToDoNotPrintBookCheckedOut() {
         int positionOfTheBookCheckedOut = 0;
         library.doCkeckOutBook(positionOfTheBookCheckedOut);
-        assertThat(library.getTheBooksCheckedOutReadyToPrint(), containsString("Peter and Wendy"));
+        assertThat(library.getTheBooksCheckedOutReadyToPrint(), containsString("Book 0"));
     }
 
     @Test
