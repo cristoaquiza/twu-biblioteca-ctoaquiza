@@ -22,7 +22,7 @@ public class LibraryTest {
         currentObjectsToRent= new ArrayList();
         currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
         currentObjectsToRent.add(new Book("Book 1", "Author 2", 1992));
-        currentObjectsToRent.add(new Movie("Movie 1"));
+        currentObjectsToRent.add(new Movie("Movie 1", 1990, "Director 1", 5));
         library.uploadObjectsToRent(currentObjectsToRent);
     }
 
@@ -97,7 +97,7 @@ public class LibraryTest {
         Book currentBook = (Book) currentObjectsToRent.get(0);
         String expectedMovie = "Movie 1";
         Movie currentMovie = (Movie) currentObjectsToRent.get(2);
-        assertEquals("failure - movie of objectsToRent should be equals", currentMovie.title, expectedMovie);
+        assertEquals("failure - movie of objectsToRent should be equals", currentMovie.name, expectedMovie);
         assertEquals("failure - book of objectsToRent should be equals", currentBook.getTitle(), expectedBook);
     }
 }
