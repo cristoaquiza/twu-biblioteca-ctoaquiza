@@ -11,7 +11,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         System.out.println(Library.getWelcomeMessage());
-        library.setBooks(getMyListOfBooksExisting());
+        library.uploadObjectsToRent(getMyListOfBooksExisting());
         String optionNumber = "";
         do {
             System.out.println(menu.printMenu());
@@ -27,8 +27,8 @@ public class BibliotecaApp {
         } while (isTheOptionEnteredNonZero(optionNumber));
     }
 
-    private static List<Book> getMyListOfBooksExisting() {
-        List<Book> myBooks = new ArrayList();
+    private static List<ObjectToRent> getMyListOfBooksExisting() {
+        List<ObjectToRent> myBooks = new ArrayList();
         myBooks.add(new Book("The Canterbury Tales", "Geoffrey Chaucer", 1400));
         myBooks.add(new Book("Don Quixote", "Miguel de Cervantes", 1605));
         myBooks.add(new Book("Things Fall Apart", "Chinua Achebe", 1958));

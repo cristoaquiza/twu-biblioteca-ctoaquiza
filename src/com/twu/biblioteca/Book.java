@@ -13,21 +13,6 @@ public class Book implements ObjectToRent{
         this.checkedOut = false;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof Book)) {
-            return false;
-        }
-        Book otherBook = (Book) obj;
-        if (areAllOfFieldsUnEquals(otherBook)) {
-            return false;
-        }
-        return true;
-    }
-
     private boolean areAllOfFieldsUnEquals(Book otherBook) {
         return !otherBook.getAuthor().equals(this.getAuthor()) || !otherBook.getTitle().equals(this.getTitle()) || otherBook.getYear() != this.getYear();
     }

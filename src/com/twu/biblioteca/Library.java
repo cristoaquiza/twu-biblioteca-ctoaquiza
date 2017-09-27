@@ -19,14 +19,6 @@ public class Library {
         return this.books;
     }
 
-    public void setBooks(List books) {
-        this.books = books;
-    }
-
-    public void setMovies(List<Movie> movies) {
-        this.movies = movies;
-    }
-
     public void uploadObjectsToRent(List<ObjectToRent> objectsToRent) {
         this.objectsToRent = objectsToRent;
     }
@@ -58,13 +50,19 @@ public class Library {
     }
 
     public void doCkeckOutBook(int index) {
-        this.books.get(index).setCheckedOut(true);
+        if(this.objectsToRent.get(index) instanceof Book) {
+            Book bookToCheckedOut = (Book) this.objectsToRent.get(index);
+            bookToCheckedOut.setCheckedOut(true);
+        }
     }
 
     public String getTheBooksCheckedOutReadyToPrint() {
         String print = "--- BOOKS CHECKED OUT ---\n";
-        for(int i = 0; i < this.books.size(); i++) {
-            if(this.getBooks().get(i).getCheckedOut())
+        for(int i = 0; i < this.objectsToRent.size(); i++) {
+            ObjectToRent objectToRent = this.getObjectsToRent().get(i);
+            if(objectToRent instanceof Movie) break;
+            Book bookToRent = (Book) objectToRent;
+            if(bookToRent.getCheckedOut())
                 print += getNumberedBookToPrint(i);
         }
         print += "--- END BOOKS CHECKED OUT ---\n";
@@ -72,7 +70,7 @@ public class Library {
     }
 
     private String getNumberedBookToPrint(int i) {
-        return (i+1) + ". " + this.books.get(i).toString() + "\n";
+        return (i+1) + ". " + this.objectsToRent.get(i).toString() + "\n";
     }
 
     public boolean returnBook() {
@@ -96,7 +94,8 @@ public class Library {
     }
 
     public void doReturnBook(int index) {
-        this.books.get(index).setCheckedOut(false);
+        Book objectToReturn = (Book) this.objectsToRent.get(index);
+        objectToReturn.setCheckedOut(false);
     }
 
     public List<Movie> getMovies() {
@@ -105,5 +104,13 @@ public class Library {
 
     public List<ObjectToRent> getObjectsToRent() {
         return objectsToRent;
+    }
+
+    public String objectsToRentToString() {
+        String objectsToString = "\t___ List of Objects to rent ___\n";
+        for (ObjectToRent objectToRent: this.objectsToRent) {
+            objectsToString += objectToRent.toString() + "\n";
+        }
+        return objectsToString;
     }
 }

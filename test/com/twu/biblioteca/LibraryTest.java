@@ -13,10 +13,7 @@ public class LibraryTest {
 
     Library library;
     String welcomeMessage;
-    List currentBooks;
-    List<Movie> currentMovies;
     List<ObjectToRent> currentObjectsToRent;
-
 
     @Before
     public void setUp() {
@@ -27,13 +24,6 @@ public class LibraryTest {
         currentObjectsToRent.add(new Book("Book 1", "Author 2", 1992));
         currentObjectsToRent.add(new Movie("Movie 1"));
         library.uploadObjectsToRent(currentObjectsToRent);
-        currentBooks = new ArrayList<Book>();
-        currentBooks.add(new Book("Book 0", "Author 1", 1991));
-        currentBooks.add(new Book("Book 1", "Author 2", 1992));
-        library.setBooks(currentBooks);
-        currentMovies = new ArrayList();
-        currentMovies.add(new Movie("Movie 1"));
-        library.setMovies(currentMovies);
     }
 
     @Test
@@ -47,48 +37,43 @@ public class LibraryTest {
     }
 
     @Test
-    public void testBooksListIsNotNull() {
-        List books = library.getBooks();
-        assertNotNull("failure - booksList should not be null", books);
+    public void testObjectsToRentListIsNotNull() {
+        List objectsToRent = library.getObjectsToRent();
+        assertNotNull("failure - objectsToRentList should not be null", objectsToRent);
     }
 
     @Test
-    public void testUploadBooksFromListAsAParameter() {
-        List expectedList = library.getBooks();
-        assertEquals("failure - bookList items should be equals", currentBooks.get(0), expectedList.get(0));
+    public void testObjectsToRentListIsNotEmpty() {
+        int lengthOfList = library.getObjectsToRent().size();
+        assertTrue("failure - objectsToRentList should not be empty", lengthOfList > 0);
     }
 
     @Test
-    public void testBooksListIsNotEmpty() {
-        int lengthOfBookList = library.getBooks().size();
-        assertTrue("failure - bookList should not be empty", lengthOfBookList > 0);
+    public void testObjectsListItemIsAnInstanceOfBook() {
+        int indexOfBook0 = 0;
+        assertThat(library.getObjectsToRent().get(indexOfBook0), instanceOf(Book.class));
     }
 
     @Test
-    public void testThatTheBooksLoadItemIsAnInstanceOfBook() {
-        assertThat(library.getBooks().get(0), instanceOf(Book.class));
+    public void testObjectsListItemIsAnInstanceOfMovie() {
+        int indexOfMovie1 = 2;
+        assertThat(library.getObjectsToRent().get(indexOfMovie1), instanceOf(Movie.class));
     }
 
     @Test
-    public void testThatTheBooksLoadItemHasRobinsonCrusoeBook() {
-        assertThat(library.getBooks(), hasItem(new Book("Book 0", "Author 1", 1991)));
+    public void testGetObjectsToPrintListReadyToPrint() {
+        String printing = library.objectsToRentToString();
+        assertThat(printing, containsString("Book 0"));
+        assertThat(printing, containsString("Book 1"));
+        assertThat(printing, containsString("Movie 1"));
     }
 
     @Test
-    public void testBooksListFieldIsNotNull() {
-        assertNotNull("failure - the books list is null", library.getBooks());
-    }
-
-    @Test
-    public void testThatPrintBooksIsNotEmpty() {
-        assertTrue("failure - the lenght of books print should be > 0", library.getTheBooksListReadyToPrint().length() > 0);
-    }
-
-    @Test
-    public void testThatTheBookChangeItsCheckoutStateFromFalseToTrue() {
+    public void testThatTheBookChangeItsCheckoutStateFromFalseToTrueWhenCheckedBook() {
         int positionOfTheBookCheckedOut = 0;
         library.doCkeckOutBook(positionOfTheBookCheckedOut);
-        assertTrue("failure - the state book should be checkedout (true)", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
+        Book bookCheckedOut = (Book) library.getObjectsToRent().get(positionOfTheBookCheckedOut);
+        assertTrue("failure - the state book should be checkedout (true)", bookCheckedOut.getCheckedOut());
     }
 
     @Test
@@ -99,43 +84,11 @@ public class LibraryTest {
     }
 
     @Test
-    public void testThatTheBookChangeItsCheckoutStateFromTrueToFalse() {
+    public void testThatTheBookChangeItsCheckoutStateFromTrueToFalseWhenReturnBook() {
         int positionOfTheBookCheckedOut = 0;
         library.doReturnBook(positionOfTheBookCheckedOut);
-        assertFalse("failure - the state book should be checkedout (false)", library.getBooks().get(positionOfTheBookCheckedOut).getCheckedOut());
-    }
-
-    @Test
-    public void testMoviesListIsNotNull() {
-        assertNotNull("failure - moviesList should not be null", library.getMovies());
-    }
-
-    @Test
-    public void testMoviesListIsNotEmpty() {
-        int lengthOfMoviesList = library.getMovies().size();
-        assertTrue("failure - movieList should not be empty", lengthOfMoviesList > 0);
-    }
-
-    @Test
-    public void testUploadMoviesFromListAsAParameter() {
-        String expectedItem = "Movie 1";
-        Movie currentMovie = currentMovies.get(0);
-        assertEquals("failure - movieList items should be equals", currentMovie.title, expectedItem);
-    }
-
-    @Test
-    public void testMoviesListItemIsAnInstanceOfMovie() {
-        assertThat(library.getMovies().get(0), instanceOf(Movie.class));
-    }
-
-    @Test
-    public void testObjectsListItemIsAnInstanceOfBook() {
-        assertThat(library.getObjectsToRent().get(0), instanceOf(Book.class));
-    }
-
-    @Test
-    public void testObjectsListItemIsAnInstanceOfMovie() {
-        assertThat(library.getObjectsToRent().get(2), instanceOf(Movie.class));
+        Book bookReturned = (Book) library.getObjectsToRent().get(positionOfTheBookCheckedOut);
+        assertFalse("failure - the state book should be checkedout (false)", bookReturned.getCheckedOut());
     }
 
     @Test
