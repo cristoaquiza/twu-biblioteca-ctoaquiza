@@ -15,11 +15,10 @@ public class Book implements ObjectToRent{
 
     @Override
     public String toString() {
-        String print = "";
-        print += "Title: " + this.title + "\t";
-        print += "Author: " + this.author + "\t";
-        print += "Year published: " + this.year;
-        return print;
+        return this.getClass().getSimpleName() + "\t" +
+                getTitle() + "\t" +
+                getAuthor() + "\t" +
+                getYear() + "\n";
     }
 
     public boolean getCheckedOut() {
