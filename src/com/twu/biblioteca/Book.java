@@ -13,10 +13,6 @@ public class Book implements ObjectToRent{
         this.checkedOut = false;
     }
 
-    private boolean areAllOfFieldsUnEquals(Book otherBook) {
-        return !otherBook.getAuthor().equals(this.getAuthor()) || !otherBook.getTitle().equals(this.getTitle()) || otherBook.getYear() != this.getYear();
-    }
-
     @Override
     public String toString() {
         String print = "";
