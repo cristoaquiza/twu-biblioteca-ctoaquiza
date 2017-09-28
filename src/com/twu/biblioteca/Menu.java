@@ -27,34 +27,46 @@ public class Menu {
     }
 
     public void doTheChoice(int optionNumber) {
+        Scanner read;
+        String stringOfNumberInTheListOfObject;
+        int positionOfTheObjectInTheList;
         switch (optionNumber) {
             case 1:
                 System.out.print(getLibrarian().getLibrary().toString());
                 break;
             case 2:
                 System.out.println("Enter the book number to checkout: ");
-                Scanner read = new Scanner(System.in);
-                String stringOfNumberInTheListOfObject = read.nextLine();
-                int positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
+                read = new Scanner(System.in);
+                stringOfNumberInTheListOfObject = read.nextLine();
+                positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
                 if(!isThePositionOfObjectValidToCheckOut(positionOfTheObjectInTheList)) {
                     System.out.println("NOTIFICATION: That book is not available.");
                     break;
                 }
-                librarian.checkOutObject(positionOfTheObjectInTheList);
+                getLibrarian().checkOutObject(positionOfTheObjectInTheList);
                 System.out.println("NOTIFICATION: Thank you! Enjoy the book.");
                 break;
             case 3:
-                if(library.returnBook()) {
-                    System.out.println("Thank you for returning the book.");
-                } else {
-                    System.out.println("That is not a valid book to return.");
+                System.out.println("Enter the book number to checkout: ");
+                read = new Scanner(System.in);
+                stringOfNumberInTheListOfObject = read.nextLine();
+                positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
+                if(!isThePositionOfObjectValidToReturn(positionOfTheObjectInTheList)) {
+                    System.out.println("NOTIFICATION: That is not a valid book to return.");
+                    break;
                 }
+                getLibrarian().returnObject(positionOfTheObjectInTheList);
+                System.out.println("NOTIFICATION: Thank you for returning the book.");
                 break;
         }
     }
 
     private boolean isThePositionOfObjectValidToCheckOut(int positionOfTheObjectInTheList) {
         return positionOfTheObjectInTheList >= 0 && positionOfTheObjectInTheList < librarian.getLibrary().getObjectsToRent().size() && !librarian.getLibrary().getObjectsToRent().get(positionOfTheObjectInTheList).isCheckedOut();
+    }
+
+    private boolean isThePositionOfObjectValidToReturn(int positionOfTheObjectInTheList) {
+        return positionOfTheObjectInTheList >= 0 && positionOfTheObjectInTheList < librarian.getLibrary().getObjectsToRent().size() && librarian.getLibrary().getObjectsToRent().get(positionOfTheObjectInTheList).isCheckedOut();
     }
 
     public Librarian getLibrarian() {

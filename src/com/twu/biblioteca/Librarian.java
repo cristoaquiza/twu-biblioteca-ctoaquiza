@@ -6,8 +6,12 @@ public class Librarian {
         this.library = library;
     }
 
-    public void checkOutObject(int positionOfTheBookCheckedOut) {
-        getLibrary().getObjectsToRent().get(positionOfTheBookCheckedOut).setCheckedOut(true);
+    public void checkOutObject(int positionOfTheObjectCheckedOut) {
+        getLibrary().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(true);
+    }
+
+    public void returnObject(int positionOfTheObjectReturned) {
+        getLibrary().getObjectsToRent().get(positionOfTheObjectReturned).setCheckedOut(false);
     }
 
     public Library getLibrary() {
