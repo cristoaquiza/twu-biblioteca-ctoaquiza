@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.containsString;
@@ -33,5 +34,17 @@ public class BookTest {
         String yearExpected = "1900";
         String bookToStringGetting = book.toString().toLowerCase();
         assertThat(bookToStringGetting, allOf(containsString(titleExpected), containsString(authorExpected), containsString(yearExpected)));
+    }
+
+    @Test
+    public void testValueOfFieldCheckedOutAfterInitializeWasFalse() {
+        assertFalse("failure - the value of checkedOut for default should be false", book.isCheckedOut());
+    }
+
+    @Test
+    public void testSetFieldCheckedOutAsTrue() {
+        boolean valueExpectedOfFieldCheckedOut = true;
+        book.setCheckedOut(valueExpectedOfFieldCheckedOut);
+        assertTrue("failure - the value setting of checkedOut should be true", book.isCheckedOut());
     }
 }

@@ -30,8 +30,8 @@ public class Movie implements ObjectToRent {
     }
 
     @Override
-    public void setObjectAsCheckedOut() {
-
+    public void setCheckedOut(boolean checkedOut) {
+        this.checkedOut = checkedOut;
     }
 
     @Override

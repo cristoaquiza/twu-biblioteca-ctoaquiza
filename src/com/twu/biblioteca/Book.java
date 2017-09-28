@@ -21,17 +21,13 @@ public class Book implements ObjectToRent{
     }
 
     @Override
-    public void setObjectAsCheckedOut() {
-
+    public void setCheckedOut(boolean checkedOut) {
+        this.checkedOut = checkedOut;
     }
 
     @Override
     public boolean isCheckedOut() {
         return checkedOut;
-    }
-
-    public void setCheckedOut(boolean checkedOut) {
-        this.checkedOut = checkedOut;
     }
 
     public String getTitle() {
