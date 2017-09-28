@@ -35,8 +35,13 @@ public class Menu {
                 System.out.println("Enter the book number to checkout: ");
                 Scanner read = new Scanner(System.in);
                 String stringOfNumberInTheListOfObject = read.nextLine();
-                int numberInTheListOfObject = Integer.parseInt(stringOfNumberInTheListOfObject);
-                librarian.checkOutObject(numberInTheListOfObject);
+                int positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
+                if(!isThePositionOfObjectValidToCheckOut(positionOfTheObjectInTheList)) {
+                    System.out.println("NOTIFICATION: That book is not available.");
+                    break;
+                }
+                librarian.checkOutObject(positionOfTheObjectInTheList);
+                System.out.println("NOTIFICATION: Thank you! Enjoy the book.");
                 break;
             case 3:
                 if(library.returnBook()) {
@@ -46,6 +51,10 @@ public class Menu {
                 }
                 break;
         }
+    }
+
+    private boolean isThePositionOfObjectValidToCheckOut(int positionOfTheObjectInTheList) {
+        return positionOfTheObjectInTheList >= 0 && positionOfTheObjectInTheList < librarian.getLibrary().getObjectsToRent().size() && !librarian.getLibrary().getObjectsToRent().get(positionOfTheObjectInTheList).isCheckedOut();
     }
 
     public Librarian getLibrarian() {
