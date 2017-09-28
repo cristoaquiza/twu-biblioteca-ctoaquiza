@@ -61,8 +61,8 @@ public class LibraryTest {
     }
 
     @Test
-    public void testGetObjectsToPrintListReadyToPrint() {
-        String printing = library.objectsToRentToString();
+    public void testGetListOfObjectsToRentReadyToPrint() {
+        String printing = library.toString();
         assertThat(printing, containsString("Book 0"));
         assertThat(printing, containsString("Book 1"));
         assertThat(printing, containsString("Movie 1"));

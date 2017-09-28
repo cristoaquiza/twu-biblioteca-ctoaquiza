@@ -106,11 +106,13 @@ public class Library {
         return objectsToRent;
     }
 
-    public String objectsToRentToString() {
-        String objectsToString = "\t___ List of Objects to rent ___\n";
+    @Override
+    public String toString() {
+        String objectsToString = "\t--- LIST OF OBJECTS TO RENT ---\n";
         for (ObjectToRent objectToRent: this.objectsToRent) {
             objectsToString += objectToRent.toString() + "\n";
         }
+        objectsToString += "\t--- END LIST OF OBJECTS TO RENT ---\n";
         return objectsToString;
     }
 }
