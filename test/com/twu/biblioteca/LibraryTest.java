@@ -14,6 +14,7 @@ public class LibraryTest {
     Library library;
     String welcomeMessage;
     List<ObjectToRent> currentObjectsToRent;
+    Librarian librarian;
 
     @Before
     public void setUp() {
@@ -24,6 +25,7 @@ public class LibraryTest {
         currentObjectsToRent.add(new Book("Book 1", "Author 2", 1992));
         currentObjectsToRent.add(new Movie("Movie 1", 1990, "Director 1", 5));
         library.uploadObjectsToRent(currentObjectsToRent);
+        librarian = new Librarian(library);
     }
 
     @Test
@@ -99,5 +101,13 @@ public class LibraryTest {
         Movie currentMovie = (Movie) currentObjectsToRent.get(2);
         assertEquals("failure - movie of objectsToRent should be equals", currentMovie.getName(), expectedMovie);
         assertEquals("failure - book of objectsToRent should be equals", currentBook.getTitle(), expectedBook);
+    }
+
+    @Test
+    public void testStringOfObjectsListDoNotHaveCheckedOutObjects() {
+        int positionOfTheBookYouWantToCheckOut = 0;
+        librarian.checkOutObject(positionOfTheBookYouWantToCheckOut);
+        String printing = librarian.getLibrary().toString();
+        assertThat(printing, not(containsString("Book 0")));
     }
 }
