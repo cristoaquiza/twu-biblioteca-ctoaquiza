@@ -23,7 +23,7 @@ public class MovieTest {
         assertThat(movie.getName(), instanceOf(String.class));
         assertThat(movie.getYear(), instanceOf(Integer.class));
         assertThat(movie.getDirector(), instanceOf(String.class));
-        assertThat(movie.getRating(), instanceOf(Integer.class));
+        assertThat(movie.getRating(), instanceOf(Double.class));
     }
 
     @Test
@@ -35,8 +35,9 @@ public class MovieTest {
 
     @Test
     public void testCanInitializeMovieWithOutRating() {
-        int defaultValueOfInt = 0;
+        String expectedRating = "0.0";
         Movie movieWithOutRating = new Movie("my movie", 1993, "my director");
-        assertEquals("failure - rating of movieWithOutRating should be zero", movieWithOutRating.getRating(), defaultValueOfInt);
+        String currentRating = String.valueOf(movieWithOutRating.getRating());
+        assertEquals("failure - rating of movieWithOutRating should be zero", currentRating, expectedRating);
     }
 }
