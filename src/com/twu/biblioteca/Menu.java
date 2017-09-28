@@ -27,18 +27,17 @@ public class Menu {
     }
 
     public void doTheChoice(int optionNumber) {
-        Scanner read;
-        String stringOfNumberInTheListOfObject;
         int positionOfTheObjectInTheList;
         switch (optionNumber) {
             case 1:
                 System.out.print(getLibrarian().getLibrary().toString());
                 break;
             case 2:
-                System.out.println("Enter the book number to checkout: ");
-                read = new Scanner(System.in);
-                stringOfNumberInTheListOfObject = read.nextLine();
-                positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
+                positionOfTheObjectInTheList = getPositionOfTheObjectInTheListFromInput();
+                if(positionOfTheObjectInTheList < 0) {
+                    System.out.println("NOTIFICATION: Select a valid option!");
+                    break;
+                }
                 if(!isThePositionOfObjectValidToCheckOut(positionOfTheObjectInTheList)) {
                     System.out.println("NOTIFICATION: That book is not available.");
                     break;
@@ -47,10 +46,11 @@ public class Menu {
                 System.out.println("NOTIFICATION: Thank you! Enjoy the book.");
                 break;
             case 3:
-                System.out.println("Enter the book number to checkout: ");
-                read = new Scanner(System.in);
-                stringOfNumberInTheListOfObject = read.nextLine();
-                positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
+                positionOfTheObjectInTheList = getPositionOfTheObjectInTheListFromInput();
+                if(positionOfTheObjectInTheList < 0) {
+                    System.out.println("NOTIFICATION: Select a valid option!");
+                    break;
+                }
                 if(!isThePositionOfObjectValidToReturn(positionOfTheObjectInTheList)) {
                     System.out.println("NOTIFICATION: That is not a valid book to return.");
                     break;
@@ -58,6 +58,22 @@ public class Menu {
                 getLibrarian().returnObject(positionOfTheObjectInTheList);
                 System.out.println("NOTIFICATION: Thank you for returning the book.");
                 break;
+        }
+    }
+
+    private int getPositionOfTheObjectInTheListFromInput() {
+        Scanner read;
+        String stringOfNumberInTheListOfObject;
+        int positionOfTheObjectInTheList;
+        System.out.println("Enter the object number: ");
+        read = new Scanner(System.in);
+        stringOfNumberInTheListOfObject = read.nextLine();
+        try {
+            Integer.parseInt(stringOfNumberInTheListOfObject);
+            positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
+            return positionOfTheObjectInTheList;
+        } catch (NumberFormatException ex) {
+            return -1;
         }
     }
 
