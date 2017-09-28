@@ -28,7 +28,7 @@ public class MenuTest {
 
     @Test
     public void checkThaTheMenuHasTheOptionListBooks() {
-        assertThat(menu.printMenu().toLowerCase(), containsString("list books"));
+        assertThat(menu.printMenu().toLowerCase(), containsString("list"));
     }
 
     @Test
@@ -38,12 +38,12 @@ public class MenuTest {
 
     @Test
     public void checkThaTheMenuHasTheOptionCheckOutBook() {
-        assertThat(menu.printMenu().toLowerCase(), containsString("checkout book"));
+        assertThat(menu.printMenu().toLowerCase(), containsString("checkout"));
     }
 
     @Test
     public void checkThaTheMenuHasTheOptionReturnBook() {
-        assertThat(menu.printMenu().toLowerCase(), containsString("return book"));
+        assertThat(menu.printMenu().toLowerCase(), containsString("return"));
     }
 
     @Test
