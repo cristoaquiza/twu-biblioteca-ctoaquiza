@@ -71,29 +71,6 @@ public class LibraryTest {
     }
 
     @Test
-    public void testThatTheBookChangeItsCheckoutStateFromFalseToTrueWhenCheckedBook() {
-        int positionOfTheBookCheckedOut = 0;
-        library.doCkeckOutBook(positionOfTheBookCheckedOut);
-        Book bookCheckedOut = (Book) library.getObjectsToRent().get(positionOfTheBookCheckedOut);
-        assertTrue("failure - the state book should be checkedout (true)", bookCheckedOut.isCheckedOut());
-    }
-
-    @Test
-    public void checkToDoNotPrintBookCheckedOut() {
-        int positionOfTheBookCheckedOut = 0;
-        library.doCkeckOutBook(positionOfTheBookCheckedOut);
-        assertThat(library.getTheBooksCheckedOutReadyToPrint(), containsString("Book 0"));
-    }
-
-    @Test
-    public void testThatTheBookChangeItsCheckoutStateFromTrueToFalseWhenReturnBook() {
-        int positionOfTheBookCheckedOut = 0;
-        library.doReturnBook(positionOfTheBookCheckedOut);
-        Book bookReturned = (Book) library.getObjectsToRent().get(positionOfTheBookCheckedOut);
-        assertFalse("failure - the state book should be checkedout (false)", bookReturned.isCheckedOut());
-    }
-
-    @Test
     public void testUploadObjectsToRentFromListAsAParameter() {
         String expectedBook = "Book 0";
         Book currentBook = (Book) currentObjectsToRent.get(0);
