@@ -11,7 +11,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         System.out.println(Library.getWelcomeMessage());
-        library.uploadObjectsToRent(getMyListOfBooksExisting());
+        library.uploadObjectsToRent(getMyListOfObjectsToRentExisting());
         String optionNumber = "";
         do {
             System.out.println(menu.printMenu());
@@ -27,13 +27,17 @@ public class BibliotecaApp {
         } while (isTheOptionEnteredNonZero(optionNumber));
     }
 
-    private static List<ObjectToRent> getMyListOfBooksExisting() {
-        List<ObjectToRent> myBooks = new ArrayList();
-        myBooks.add(new Book("The Canterbury Tales", "Geoffrey Chaucer", 1400));
-        myBooks.add(new Book("Don Quixote", "Miguel de Cervantes", 1605));
-        myBooks.add(new Book("Things Fall Apart", "Chinua Achebe", 1958));
-        myBooks.add(new Book("The Divine Comedy", "Dante Alighieri", 1308));
-        return myBooks;
+    private static List<ObjectToRent> getMyListOfObjectsToRentExisting() {
+        List<ObjectToRent> booksAndMoviesToRent = new ArrayList();
+        booksAndMoviesToRent.add(new Book("The Canterbury Tales", "Geoffrey Chaucer", 1400));
+        booksAndMoviesToRent.add(new Book("Don Quixote", "Miguel de Cervantes", 1605));
+        booksAndMoviesToRent.add(new Book("Things Fall Apart", "Chinua Achebe", 1958));
+        booksAndMoviesToRent.add(new Book("The Divine Comedy", "Dante Alighieri", 1308));
+        booksAndMoviesToRent.add(new Movie("The Shawshank Redemption", 1994, "Frank Darabont", 9.3));
+        booksAndMoviesToRent.add(new Movie("The Godfather", 1972, "Francis Ford Coppola", 9.2));
+        booksAndMoviesToRent.add(new Movie("The Godfather: Part II", 1974, "Francis Ford Coppola", 9));
+        booksAndMoviesToRent.add(new Movie("Star Wars", 1977, "George Lucas"));
+        return booksAndMoviesToRent;
     }
 
     private static boolean isTheOptionEnteredNonZero(String optionNumber) {

@@ -4,9 +4,9 @@ public class Movie implements ObjectToRent {
     private String name = new String();
     private int year;
     private String director = new String();
-    private int rating;
+    private double rating;
 
-    public Movie(String name, int year, String director, int rating) {
+    public Movie(String name, int year, String director, double rating) {
         this.name = name;
         this.year = year;
         this.director = director;
@@ -31,12 +31,16 @@ public class Movie implements ObjectToRent {
         return director;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
     @Override
     public String toString() {
-        return this.getClass().toString() + "\t" + getName() + "\t" + getYear() + "\t" + getDirector() + "\t" + getRating() + "\n";
+        return this.getClass().getSimpleName() + "\t" +
+                getName() + "\t" +
+                getYear() + "\t" +
+                getDirector() + "\t" +
+                getRating();
     }
 }
