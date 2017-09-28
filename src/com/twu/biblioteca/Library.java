@@ -108,9 +108,11 @@ public class Library {
 
     @Override
     public String toString() {
-        String objectsToString = "\n\n\t--- LIST OF OBJECTS TO RENT ---\n";
+        String objectsToString = "\n\t--- LIST OF OBJECTS TO RENT ---\n";
+        int enumerator = 1;
         for (ObjectToRent objectToRent: this.objectsToRent) {
-            if(!objectToRent.isCheckedOut()) objectsToString += objectToRent.toString();
+            if(!objectToRent.isCheckedOut()) objectsToString += enumerator + ". " + objectToRent.toString();
+            enumerator++;
         }
         objectsToString += "\t--- END LIST OF OBJECTS TO RENT ---\n\n\n";
         return objectsToString;
