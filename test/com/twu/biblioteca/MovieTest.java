@@ -24,6 +24,7 @@ public class MovieTest {
         assertThat(movie.getYear(), instanceOf(Integer.class));
         assertThat(movie.getDirector(), instanceOf(String.class));
         assertThat(movie.getRating(), instanceOf(Double.class));
+        assertThat(movie.isCheckedOut(), instanceOf(Boolean.class));
     }
 
     @Test

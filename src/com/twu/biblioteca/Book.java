@@ -10,7 +10,6 @@ public class Book implements ObjectToRent{
         this.title = title;
         this.author = author;
         this.year = year;
-        this.checkedOut = false;
     }
 
     @Override
@@ -21,7 +20,13 @@ public class Book implements ObjectToRent{
                 getYear() + "\n";
     }
 
-    public boolean getCheckedOut() {
+    @Override
+    public void setObjectAsCheckedOut() {
+
+    }
+
+    @Override
+    public boolean isCheckedOut() {
         return checkedOut;
     }
 

@@ -1,18 +1,37 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.allOf;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class BookTest {
 
+    Book book;
+
+    @Before
+    public void setUp() {
+        book = new Book("my book", "my author", 1900);
+    }
+
+    @Test
+    public void testBookHasTitleAuthorAndYearAsFields() {
+        assertThat(book.getTitle(), instanceOf(String.class));
+        assertThat(book.getAuthor(), instanceOf(String.class));
+        assertThat(book.getYear(), instanceOf(Integer.class));
+        assertThat(book.isCheckedOut(), instanceOf(Boolean.class));
+    }
+
     @Test
     public void testGetBookAsAString() {
-        Book book = new Book("my book", "my author", 1900);
-        String bookToString = book.toString().toLowerCase();
-        assertThat(bookToString, allOf(containsString("my book"), containsString("my author"), containsString("1900")));
+        String titleExpected = "my book";
+        String authorExpected = "my author";
+        String yearExpected = "1900";
+        String bookToStringGetting = book.toString().toLowerCase();
+        assertThat(bookToStringGetting, allOf(containsString(titleExpected), containsString(authorExpected), containsString(yearExpected)));
     }
 }

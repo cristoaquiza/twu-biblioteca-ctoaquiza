@@ -5,6 +5,7 @@ public class Movie implements ObjectToRent {
     private int year;
     private String director = new String();
     private double rating;
+    private boolean checkedOut;
 
     public Movie(String name, int year, String director, double rating) {
         this.name = name;
@@ -17,6 +18,25 @@ public class Movie implements ObjectToRent {
         this.name = name;
         this.year = year;
         this.director = director;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "\t" +
+                getName() + "\t" +
+                getYear() + "\t" +
+                getDirector() + "\t" +
+                getRating() + "\n";
+    }
+
+    @Override
+    public void setObjectAsCheckedOut() {
+
+    }
+
+    @Override
+    public boolean isCheckedOut() {
+        return checkedOut;
     }
 
     public String getName() {
@@ -33,14 +53,5 @@ public class Movie implements ObjectToRent {
 
     public double getRating() {
         return rating;
-    }
-
-    @Override
-    public String toString() {
-        return this.getClass().getSimpleName() + "\t" +
-                getName() + "\t" +
-                getYear() + "\t" +
-                getDirector() + "\t" +
-                getRating() + "\n";
     }
 }
