@@ -108,11 +108,11 @@ public class Library {
 
     @Override
     public String toString() {
-        String objectsToString = "\t--- LIST OF OBJECTS TO RENT ---\n";
+        String objectsToString = "\n\n\t--- LIST OF OBJECTS TO RENT ---\n";
         for (ObjectToRent objectToRent: this.objectsToRent) {
-            objectsToString += objectToRent.toString() + "\n";
+            objectsToString += objectToRent.toString();
         }
-        objectsToString += "\t--- END LIST OF OBJECTS TO RENT ---\n";
+        objectsToString += "\t--- END LIST OF OBJECTS TO RENT ---\n\n\n";
         return objectsToString;
     }
 }

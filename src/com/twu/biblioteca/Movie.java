@@ -41,6 +41,6 @@ public class Movie implements ObjectToRent {
                 getName() + "\t" +
                 getYear() + "\t" +
                 getDirector() + "\t" +
-                getRating();
+                getRating() + "\n";
     }
 }
