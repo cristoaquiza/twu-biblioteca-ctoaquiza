@@ -97,7 +97,7 @@ public class LibraryTest {
         Book currentBook = (Book) currentObjectsToRent.get(0);
         String expectedMovie = "Movie 1";
         Movie currentMovie = (Movie) currentObjectsToRent.get(2);
-        assertEquals("failure - movie of objectsToRent should be equals", currentMovie.name, expectedMovie);
+        assertEquals("failure - movie of objectsToRent should be equals", currentMovie.getName(), expectedMovie);
         assertEquals("failure - book of objectsToRent should be equals", currentBook.getTitle(), expectedBook);
     }
 }

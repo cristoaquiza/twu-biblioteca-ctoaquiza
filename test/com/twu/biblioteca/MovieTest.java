@@ -20,23 +20,23 @@ public class MovieTest {
 
     @Test
     public void testBookHasTitleAuthorAndYearAsFields() {
-        assertThat(movie.name, instanceOf(String.class));
-        assertThat(movie.year, instanceOf(Integer.class));
-        assertThat(movie.director, instanceOf(String.class));
-        assertThat(movie.rating, instanceOf(Integer.class));
+        assertThat(movie.getName(), instanceOf(String.class));
+        assertThat(movie.getYear(), instanceOf(Integer.class));
+        assertThat(movie.getDirector(), instanceOf(String.class));
+        assertThat(movie.getRating(), instanceOf(Integer.class));
     }
 
     @Test
     public void testGetMovieAsAString() {
         Movie movieExpected = new Movie("my movie", 1993, "my director", 10);
         String movieToString = movie.toString().toLowerCase();
-        assertThat(movieToString, allOf(containsString(movieExpected.name), containsString(movieExpected.year + ""), containsString(movieExpected.director), containsString(movieExpected.rating + "")));
+        assertThat(movieToString, allOf(containsString(movieExpected.getName()), containsString(movieExpected.getYear() + ""), containsString(movieExpected.getDirector()), containsString(movieExpected.getRating() + "")));
     }
 
     @Test
     public void testCanInitializeMovieWithOutRating() {
         int defaultValueOfInt = 0;
         Movie movieWithOutRating = new Movie("my movie", 1993, "my director");
-        assertEquals("failure - rating of movieWithOutRating should be zero", movieWithOutRating.rating, defaultValueOfInt);
+        assertEquals("failure - rating of movieWithOutRating should be zero", movieWithOutRating.getRating(), defaultValueOfInt);
     }
 }
