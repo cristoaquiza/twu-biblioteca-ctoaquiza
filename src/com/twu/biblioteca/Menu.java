@@ -17,12 +17,12 @@ public class Menu {
 
     public String printMenu() {
         String menu = "";
-        menu += "---- MENU ----\n";
-        menu += "1. List Books\n";
-        menu += "2. Checkout Book\n";
-        menu += "3. Return Book\n";
-        menu += "0. Quit\n";
-        menu += "--- END MENU ---\n";
+        menu += "\n\t---- MENU ----\n";
+        menu += "[1] List Objects to rent\t";
+        menu += "[2] Checkout Object\t";
+        menu += "[3] Return Object\t";
+        menu += "[0] Quit\n";
+        menu += "\t--- END MENU ---\n";
         return menu;
     }
 
