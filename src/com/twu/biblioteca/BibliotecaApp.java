@@ -5,13 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaApp {
-    private static Library library = new Library();
-    private static Menu menu = new Menu(library);
     private static Utils utils = new Utils();
 
     public static void main(String[] args) {
-        System.out.println(Library.getWelcomeMessage());
+        Library library = new Library();
         library.uploadObjectsToRent(getMyListOfObjectsToRentExisting());
+        Librarian librarian = new Librarian(library);
+        Menu menu = new Menu(librarian);
+        System.out.println(Library.getWelcomeMessage());
         String optionNumber = "";
         do {
             System.out.println(menu.printMenu());

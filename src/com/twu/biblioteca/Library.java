@@ -26,7 +26,7 @@ public class Library {
     public String getTheBooksListReadyToPrint() {
         String print = "--- LIST BOOKS ---\n";
         for(int i = 0; i < this.books.size(); i++) {
-            if(!this.getBooks().get(i).getCheckedOut())
+            if(!this.getBooks().get(i).isCheckedOut())
                 print += getNumberedBookToPrint(i);
         }
         print += "--- END LIST BOOKS ---\n";
@@ -46,7 +46,7 @@ public class Library {
     }
 
     private boolean isTheBookNumberABookValidToCheckout(String bookNumber) {
-        return getIndexFromInput(bookNumber) >= 0 && getIndexFromInput(bookNumber) <= this.books.size() && !this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
+        return getIndexFromInput(bookNumber) >= 0 && getIndexFromInput(bookNumber) <= this.books.size() && !this.books.get(getIndexFromInput(bookNumber)).isCheckedOut();
     }
 
     public void doCkeckOutBook(int index) {
@@ -62,7 +62,7 @@ public class Library {
             ObjectToRent objectToRent = this.getObjectsToRent().get(i);
             if(objectToRent instanceof Movie) break;
             Book bookToRent = (Book) objectToRent;
-            if(bookToRent.getCheckedOut())
+            if(bookToRent.isCheckedOut())
                 print += getNumberedBookToPrint(i);
         }
         print += "--- END BOOKS CHECKED OUT ---\n";
@@ -90,7 +90,7 @@ public class Library {
     }
 
     private boolean isTheBookNumberABookValidToReturn(String bookNumber) {
-        return getIndexFromInput(bookNumber) >= 0 && getIndexFromInput(bookNumber) <= this.books.size() && this.books.get(getIndexFromInput(bookNumber)).getCheckedOut();
+        return getIndexFromInput(bookNumber) >= 0 && getIndexFromInput(bookNumber) <= this.books.size() && this.books.get(getIndexFromInput(bookNumber)).isCheckedOut();
     }
 
     public void doReturnBook(int index) {

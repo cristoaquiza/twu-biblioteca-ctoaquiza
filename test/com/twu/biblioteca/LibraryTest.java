@@ -73,7 +73,7 @@ public class LibraryTest {
         int positionOfTheBookCheckedOut = 0;
         library.doCkeckOutBook(positionOfTheBookCheckedOut);
         Book bookCheckedOut = (Book) library.getObjectsToRent().get(positionOfTheBookCheckedOut);
-        assertTrue("failure - the state book should be checkedout (true)", bookCheckedOut.getCheckedOut());
+        assertTrue("failure - the state book should be checkedout (true)", bookCheckedOut.isCheckedOut());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class LibraryTest {
         int positionOfTheBookCheckedOut = 0;
         library.doReturnBook(positionOfTheBookCheckedOut);
         Book bookReturned = (Book) library.getObjectsToRent().get(positionOfTheBookCheckedOut);
-        assertFalse("failure - the state book should be checkedout (false)", bookReturned.getCheckedOut());
+        assertFalse("failure - the state book should be checkedout (false)", bookReturned.isCheckedOut());
     }
 
     @Test
