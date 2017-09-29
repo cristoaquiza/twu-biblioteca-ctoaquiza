@@ -19,7 +19,7 @@ public class Menu {
         this.librarian = librarian;
     }
 
-    public String printMenu() {
+    public String getMenuToString() {
         String menu = "";
         menu += "\n\t---- MENU ----\n";
         menu += "[1] List Objects to rent\t";

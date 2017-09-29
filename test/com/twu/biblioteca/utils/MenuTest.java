@@ -26,27 +26,27 @@ public class MenuTest {
 
     @Test
     public void testThatPrintMenuIsNotEmpty() {
-        assertTrue("failure - the length of menu print should be > 0", menu.printMenu().length() > 0);
+        assertTrue("failure - the length of menu print should be > 0", menu.getMenuToString().length() > 0);
     }
 
     @Test
     public void checkThaTheMenuHasTheOptionListBooks() {
-        assertThat(menu.printMenu().toLowerCase(), containsString("list"));
+        assertThat(menu.getMenuToString().toLowerCase(), containsString("list"));
     }
 
     @Test
     public void checkThatTheMenuHasTheOptionQuit() {
-        assertThat(menu.printMenu().toLowerCase(), containsString("quit"));
+        assertThat(menu.getMenuToString().toLowerCase(), containsString("quit"));
     }
 
     @Test
     public void checkThaTheMenuHasTheOptionCheckOutBook() {
-        assertThat(menu.printMenu().toLowerCase(), containsString("checkout"));
+        assertThat(menu.getMenuToString().toLowerCase(), containsString("checkout"));
     }
 
     @Test
     public void checkThaTheMenuHasTheOptionReturnBook() {
-        assertThat(menu.printMenu().toLowerCase(), containsString("return"));
+        assertThat(menu.getMenuToString().toLowerCase(), containsString("return"));
     }
 
     @Test

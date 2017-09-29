@@ -37,7 +37,7 @@ public class BibliotecaApp {
         System.out.println(ObjectCatalog.getWelcomeMessage());
         String optionNumber = "";
         do {
-            System.out.println(menu.printMenu());
+            System.out.println(menu.getMenuToString());
             System.out.println("Enter the option number to do: ");
             Scanner readMenu = new Scanner(System.in);
             optionNumber = readMenu.nextLine();
