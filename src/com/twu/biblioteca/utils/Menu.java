@@ -42,11 +42,11 @@ public class Menu {
                     break;
                 }
                 if(!isThePositionOfObjectValidToCheckOut(positionOfTheObjectInTheList)) {
-                    System.out.println("NOTIFICATION: That book is not available.");
+                    System.out.println("NOTIFICATION: That rental product is not available.");
                     break;
                 }
                 getLibrarian().checkOutObject(positionOfTheObjectInTheList);
-                System.out.println("NOTIFICATION: Thank you! Enjoy the book.");
+                System.out.println("NOTIFICATION: Thank you! Enjoy the rented product.");
                 break;
             case 3:
                 positionOfTheObjectInTheList = getPositionOfTheObjectInTheListFromInput();
@@ -55,11 +55,11 @@ public class Menu {
                     break;
                 }
                 if(!isThePositionOfObjectValidToReturn(positionOfTheObjectInTheList)) {
-                    System.out.println("NOTIFICATION: That is not a valid book to return.");
+                    System.out.println("NOTIFICATION: That is not a valid rented product to return.");
                     break;
                 }
                 getLibrarian().returnObject(positionOfTheObjectInTheList);
-                System.out.println("NOTIFICATION: Thank you for returning the book.");
+                System.out.println("NOTIFICATION: Thank you for returning the rented product.");
                 break;
         }
     }
@@ -67,7 +67,7 @@ public class Menu {
     private int getPositionOfTheObjectInTheListFromInput() {
         Scanner read;
         String stringOfNumberInTheListOfObject;
-        System.out.println("Enter the object number: ");
+        System.out.println("Enter the number of the object in the list: ");
         read = new Scanner(System.in);
         stringOfNumberInTheListOfObject = read.nextLine();
         try {
