@@ -1,6 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.library.objectsToRent;
 
-public class Book implements ObjectToRent{
+import com.twu.biblioteca.library.ObjectToRent;
+
+public class Book implements ObjectToRent {
     private String title;
     private String author;
     private int year;

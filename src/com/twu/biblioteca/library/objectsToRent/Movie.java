@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.library.objectsToRent;
+
+import com.twu.biblioteca.library.ObjectToRent;
 
 public class Movie implements ObjectToRent {
     private String name = new String();

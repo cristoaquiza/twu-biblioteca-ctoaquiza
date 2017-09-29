@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.library.objectsToRent;
 
 import org.junit.Before;
 import org.junit.Test;

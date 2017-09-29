@@ -1,10 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.utils;
 
+import com.twu.biblioteca.library.Librarian;
+import com.twu.biblioteca.library.Library;
+import com.twu.biblioteca.utils.Menu;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
