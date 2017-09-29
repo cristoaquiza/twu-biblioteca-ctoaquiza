@@ -2,11 +2,11 @@ package com.twu.biblioteca.library;
 
 import java.util.List;
 
-public class ObjectsCatalog {
+public class ObjectCatalog {
     private List<ObjectToRent> objectsToRent;
 
     public static String getWelcomeMessage() {
-        return "Welcome to The Bangalore Public ObjectsCatalog Management System\n\t\t___ Biblioteca is available ___";
+        return "Welcome to The Bangalore Public ObjectCatalog Management System\n\t\t___ Biblioteca is available ___";
     }
 
     public void uploadObjectsToRent(List<ObjectToRent> objectsToRent) {

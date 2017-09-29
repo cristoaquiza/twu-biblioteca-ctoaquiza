@@ -1,18 +1,18 @@
 package com.twu.biblioteca.utils;
 
 import com.twu.biblioteca.library.Librarian;
-import com.twu.biblioteca.library.ObjectsCatalog;
+import com.twu.biblioteca.library.ObjectCatalog;
 
 import java.util.Scanner;
 
 public class Menu {
 
-    private ObjectsCatalog objectsCatalog;
+    private ObjectCatalog objectCatalog;
     private Librarian librarian;
     String libraryNumber = "123-4567";
 
-    public Menu(ObjectsCatalog objectsCatalog) {
-        this.objectsCatalog = objectsCatalog;
+    public Menu(ObjectCatalog objectCatalog) {
+        this.objectCatalog = objectCatalog;
     }
 
     public Menu(Librarian librarian) {
@@ -34,7 +34,7 @@ public class Menu {
         int positionOfTheObjectInTheList;
         switch (optionNumber) {
             case 1:
-                System.out.print(getLibrarian().getObjectsCatalog().toString());
+                System.out.print(getLibrarian().getObjectCatalog().toString());
                 break;
             case 2:
                 positionOfTheObjectInTheList = getPositionOfTheObjectInTheListFromInput();
@@ -79,11 +79,11 @@ public class Menu {
     }
 
     private boolean isThePositionOfObjectValidToCheckOut(int positionOfTheObjectInTheList) {
-        return positionOfTheObjectInTheList >= 0 && positionOfTheObjectInTheList < librarian.getObjectsCatalog().getObjectsToRent().size() && !librarian.getObjectsCatalog().getObjectsToRent().get(positionOfTheObjectInTheList).isCheckedOut();
+        return positionOfTheObjectInTheList >= 0 && positionOfTheObjectInTheList < librarian.getObjectCatalog().getObjectsToRent().size() && !librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectInTheList).isCheckedOut();
     }
 
     private boolean isThePositionOfObjectValidToReturn(int positionOfTheObjectInTheList) {
-        return positionOfTheObjectInTheList >= 0 && positionOfTheObjectInTheList < librarian.getObjectsCatalog().getObjectsToRent().size() && librarian.getObjectsCatalog().getObjectsToRent().get(positionOfTheObjectInTheList).isCheckedOut();
+        return positionOfTheObjectInTheList >= 0 && positionOfTheObjectInTheList < librarian.getObjectCatalog().getObjectsToRent().size() && librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectInTheList).isCheckedOut();
     }
 
     public Librarian getLibrarian() {

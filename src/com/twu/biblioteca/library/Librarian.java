@@ -1,14 +1,14 @@
 package com.twu.biblioteca.library;
 
 public class Librarian {
-    private ObjectsCatalog objectsCatalog;
-    public Librarian(ObjectsCatalog objectsCatalog) {
-        this.objectsCatalog = objectsCatalog;
+    private ObjectCatalog objectCatalog;
+    public Librarian(ObjectCatalog objectCatalog) {
+        this.objectCatalog = objectCatalog;
     }
 
     public void checkOutObject(int positionOfTheObjectCheckedOut, String libraryNumber) {
         setCheckedOutFieldOfTheObject(positionOfTheObjectCheckedOut, true);
-        getObjectsCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
     }
 
     public void returnObject(int positionOfTheObjectReturned) {
@@ -16,10 +16,10 @@ public class Librarian {
     }
 
     private void setCheckedOutFieldOfTheObject(int positionOfTheObjectCheckedOut, boolean checkedOut) {
-        getObjectsCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(checkedOut);
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(checkedOut);
     }
 
-    public ObjectsCatalog getObjectsCatalog() {
-        return objectsCatalog;
+    public ObjectCatalog getObjectCatalog() {
+        return objectCatalog;
     }
 }

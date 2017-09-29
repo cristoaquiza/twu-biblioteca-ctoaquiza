@@ -11,9 +11,9 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
-public class ObjectsCatalogTest {
+public class ObjectCatalogTest {
 
-    ObjectsCatalog objectsCatalog;
+    ObjectCatalog objectCatalog;
     String welcomeMessage;
     List<ObjectToRent> currentObjectsToRent;
     Librarian librarian;
@@ -21,14 +21,14 @@ public class ObjectsCatalogTest {
 
     @Before
     public void setUp() {
-        welcomeMessage = ObjectsCatalog.getWelcomeMessage().toLowerCase();
-        objectsCatalog = new ObjectsCatalog();
+        welcomeMessage = ObjectCatalog.getWelcomeMessage().toLowerCase();
+        objectCatalog = new ObjectCatalog();
         currentObjectsToRent= new ArrayList();
         currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
         currentObjectsToRent.add(new Book("Book 1", "Author 2", 1992));
         currentObjectsToRent.add(new Movie("Movie 1", 1990, "Director 1", 5));
-        objectsCatalog.uploadObjectsToRent(currentObjectsToRent);
-        librarian = new Librarian(objectsCatalog);
+        objectCatalog.uploadObjectsToRent(currentObjectsToRent);
+        librarian = new Librarian(objectCatalog);
         libraryNumberOfLessee = "123-4567";
     }
 
@@ -44,31 +44,31 @@ public class ObjectsCatalogTest {
 
     @Test
     public void testObjectsToRentListIsNotNull() {
-        List objectsToRent = objectsCatalog.getObjectsToRent();
+        List objectsToRent = objectCatalog.getObjectsToRent();
         assertNotNull("failure - objectsToRentList should not be null", objectsToRent);
     }
 
     @Test
     public void testObjectsToRentListIsNotEmpty() {
-        int lengthOfList = objectsCatalog.getObjectsToRent().size();
+        int lengthOfList = objectCatalog.getObjectsToRent().size();
         assertTrue("failure - objectsToRentList should not be empty", lengthOfList > 0);
     }
 
     @Test
     public void testObjectsListItemIsAnInstanceOfBook() {
         int indexOfBook0 = 0;
-        assertThat(objectsCatalog.getObjectsToRent().get(indexOfBook0), instanceOf(Book.class));
+        assertThat(objectCatalog.getObjectsToRent().get(indexOfBook0), instanceOf(Book.class));
     }
 
     @Test
     public void testObjectsListItemIsAnInstanceOfMovie() {
         int indexOfMovie1 = 2;
-        assertThat(objectsCatalog.getObjectsToRent().get(indexOfMovie1), instanceOf(Movie.class));
+        assertThat(objectCatalog.getObjectsToRent().get(indexOfMovie1), instanceOf(Movie.class));
     }
 
     @Test
     public void testGetListOfObjectsToRentReadyToPrint() {
-        String printing = objectsCatalog.toString();
+        String printing = objectCatalog.toString();
         assertThat(printing, containsString("Book 0"));
         assertThat(printing, containsString("Book 1"));
         assertThat(printing, containsString("Movie 1"));
@@ -88,7 +88,7 @@ public class ObjectsCatalogTest {
     public void testStringOfObjectsListDoNotHaveCheckedOutObjects() {
         int positionOfTheBookYouWantToCheckOut = 0;
         librarian.checkOutObject(positionOfTheBookYouWantToCheckOut, libraryNumberOfLessee);
-        String printing = librarian.getObjectsCatalog().toString();
+        String printing = librarian.getObjectCatalog().toString();
         assertThat(printing, not(containsString("Book 0")));
     }
 }
