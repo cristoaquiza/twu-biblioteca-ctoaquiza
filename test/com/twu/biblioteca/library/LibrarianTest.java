@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LibrarianTest {
 
     Library library;
     Librarian librarian;
+    String libraryNumberOfLessee;
 
     @Before
     public void setUp() {
@@ -24,12 +26,13 @@ public class LibrarianTest {
         currentObjectsToRent.add(new Movie("Movie 0", 1991, "Director 1",5.4));
         library.uploadObjectsToRent(currentObjectsToRent);
         librarian = new Librarian(library);
+        libraryNumberOfLessee = "123-4567";
     }
 
     @Test
     public void testTheObjectChangeItsCheckoutStateFromFalseToTrueWhenCheckedBook() {
         int positionOfTheObjectYouWantToCheckOut = 1;
-        librarian.checkOutObject(positionOfTheObjectYouWantToCheckOut);
+        librarian.checkOutObject(positionOfTheObjectYouWantToCheckOut, libraryNumberOfLessee);
         ObjectToRent objectCheckedOut = librarian.getLibrary().getObjectsToRent().get(positionOfTheObjectYouWantToCheckOut);
         assertTrue("failure - the state of object should be checked out (true)", objectCheckedOut.isCheckedOut());
     }
@@ -40,5 +43,13 @@ public class LibrarianTest {
         librarian.returnObject(positionOfTheObjectYouWantToReturn);
         ObjectToRent objectCheckedOut = librarian.getLibrary().getObjectsToRent().get(positionOfTheObjectYouWantToReturn);
         assertFalse("failure - the state of object should be checked out (false)", objectCheckedOut.isCheckedOut());
+    }
+
+    @Test
+    public void testTheCheckOutActionSetALibraryNumberInTheRentedObject() {
+        int positionOfTheBookYouWantToCheckOut = 0;
+        librarian.checkOutObject(positionOfTheBookYouWantToCheckOut, libraryNumberOfLessee);
+        ObjectToRent rentedObject = librarian.getLibrary().getObjectsToRent().get(positionOfTheBookYouWantToCheckOut);
+        assertEquals(rentedObject.getLibraryNumberOfLessee(), libraryNumberOfLessee);
     }
 }

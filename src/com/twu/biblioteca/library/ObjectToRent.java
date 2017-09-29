@@ -7,11 +7,16 @@ public class ObjectToRent {
     public void setCheckedOut(boolean checkedOut) {
         this.checkedOut = checkedOut;
     }
+
     public boolean isCheckedOut() {
         return checkedOut;
     }
 
     public String getLibraryNumberOfLessee() {
         return libraryNumberOfLessee;
+    }
+
+    public void setLibraryNumberOfLessee(String libraryNumberOfLessee) {
+        this.libraryNumberOfLessee = libraryNumberOfLessee;
     }
 }

@@ -17,6 +17,7 @@ public class LibraryTest {
     String welcomeMessage;
     List<ObjectToRent> currentObjectsToRent;
     Librarian librarian;
+    String libraryNumberOfLessee;
 
     @Before
     public void setUp() {
@@ -28,6 +29,7 @@ public class LibraryTest {
         currentObjectsToRent.add(new Movie("Movie 1", 1990, "Director 1", 5));
         library.uploadObjectsToRent(currentObjectsToRent);
         librarian = new Librarian(library);
+        libraryNumberOfLessee = "123-4567";
     }
 
     @Test
@@ -85,7 +87,7 @@ public class LibraryTest {
     @Test
     public void testStringOfObjectsListDoNotHaveCheckedOutObjects() {
         int positionOfTheBookYouWantToCheckOut = 0;
-        librarian.checkOutObject(positionOfTheBookYouWantToCheckOut);
+        librarian.checkOutObject(positionOfTheBookYouWantToCheckOut, libraryNumberOfLessee);
         String printing = librarian.getLibrary().toString();
         assertThat(printing, not(containsString("Book 0")));
     }

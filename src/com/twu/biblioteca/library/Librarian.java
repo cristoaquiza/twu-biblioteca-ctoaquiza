@@ -6,8 +6,9 @@ public class Librarian {
         this.library = library;
     }
 
-    public void checkOutObject(int positionOfTheObjectCheckedOut) {
+    public void checkOutObject(int positionOfTheObjectCheckedOut, String libraryNumber) {
         setCheckedOutFieldOfTheObject(positionOfTheObjectCheckedOut, true);
+        getLibrary().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
     }
 
     public void returnObject(int positionOfTheObjectReturned) {

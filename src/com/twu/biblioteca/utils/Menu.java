@@ -9,6 +9,7 @@ public class Menu {
 
     private Library library;
     private Librarian librarian;
+    String libraryNumber = "123-4567";
 
     public Menu(Library library) {
         this.library = library;
@@ -45,7 +46,7 @@ public class Menu {
                     System.out.println("NOTIFICATION: That rental product is not available.");
                     break;
                 }
-                getLibrarian().checkOutObject(positionOfTheObjectInTheList);
+                getLibrarian().checkOutObject(positionOfTheObjectInTheList, libraryNumber);
                 System.out.println("NOTIFICATION: Thank you! Enjoy the rented product.");
                 break;
             case 3:
