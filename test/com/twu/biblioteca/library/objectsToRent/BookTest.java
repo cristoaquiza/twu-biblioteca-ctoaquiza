@@ -35,16 +35,4 @@ public class BookTest {
         String bookToStringGetting = book.toString().toLowerCase();
         assertThat(bookToStringGetting, allOf(containsString(titleExpected), containsString(authorExpected), containsString(yearExpected)));
     }
-
-    @Test
-    public void testValueOfFieldCheckedOutAfterInitializeWasFalse() {
-        assertFalse("failure - the value of checkedOut for default should be false", book.isCheckedOut());
-    }
-
-    @Test
-    public void testSetFieldCheckedOutAsTrue() {
-        boolean valueExpectedOfFieldCheckedOut = true;
-        book.setCheckedOut(valueExpectedOfFieldCheckedOut);
-        assertTrue("failure - the value setting of checkedOut should be true", book.isCheckedOut());
-    }
 }

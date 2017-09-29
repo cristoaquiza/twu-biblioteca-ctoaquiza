@@ -1,6 +1,17 @@
 package com.twu.biblioteca.library;
 
-public interface ObjectToRent {
-    void setCheckedOut(boolean checkedOut);
-    boolean isCheckedOut();
+public class ObjectToRent {
+    protected boolean checkedOut;
+    protected String libraryNumberOfLessee = new String();
+
+    public void setCheckedOut(boolean checkedOut) {
+        this.checkedOut = checkedOut;
+    }
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+
+    public String getLibraryNumberOfLessee() {
+        return libraryNumberOfLessee;
+    }
 }

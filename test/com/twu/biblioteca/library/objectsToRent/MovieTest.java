@@ -40,16 +40,4 @@ public class MovieTest {
         String currentRating = String.valueOf(movieWithOutRating.getRating());
         assertEquals("failure - rating of movieWithOutRating should be zero", currentRating, expectedRating);
     }
-
-    @Test
-    public void testValueOfFieldCheckedOutAfterInitializeWasFalse() {
-        assertFalse("failure - the value of checkedOut for default should be false", movie.isCheckedOut());
-    }
-
-    @Test
-    public void testSetFieldCheckedOutAsTrue() {
-        boolean valueExpectedOfFieldCheckedOut = true;
-        movie.setCheckedOut(valueExpectedOfFieldCheckedOut);
-        assertTrue("failure - the value setting of checkedOut should be true", movie.isCheckedOut());
-    }
 }

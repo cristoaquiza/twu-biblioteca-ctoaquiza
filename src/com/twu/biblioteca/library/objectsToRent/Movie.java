@@ -2,12 +2,11 @@ package com.twu.biblioteca.library.objectsToRent;
 
 import com.twu.biblioteca.library.ObjectToRent;
 
-public class Movie implements ObjectToRent {
+public class Movie extends ObjectToRent {
     private String name = new String();
     private int year;
     private String director = new String();
     private double rating;
-    private boolean checkedOut;
 
     public Movie(String name, int year, String director, double rating) {
         this.name = name;
@@ -29,16 +28,6 @@ public class Movie implements ObjectToRent {
                 getYear() + "\t" +
                 getDirector() + "\t" +
                 getRating() + "\n";
-    }
-
-    @Override
-    public void setCheckedOut(boolean checkedOut) {
-        this.checkedOut = checkedOut;
-    }
-
-    @Override
-    public boolean isCheckedOut() {
-        return checkedOut;
     }
 
     public String getName() {
