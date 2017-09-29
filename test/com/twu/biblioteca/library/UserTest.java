@@ -9,7 +9,7 @@ public class UserTest {
     @Test
     public void testTheUserHasLibraryNumberAndPasswordOfUserAsFields() {
         User user = new User();
-        assertThat(user.libraryNumber, instanceOf(String.class));
-        assertThat(user.password, instanceOf(String.class));
+        assertThat(user.getLibraryNumber(), instanceOf(String.class));
+        assertThat(user.getPassword(), instanceOf(String.class));
     }
 }
