@@ -5,8 +5,11 @@ import com.twu.biblioteca.library.catalog.UserCatalog;
 
 public class Librarian {
     private ObjectCatalog objectCatalog;
+    private UserCatalog userCatalog;
+
     public Librarian(ObjectCatalog objectCatalog, UserCatalog userCatalog) {
         this.objectCatalog = objectCatalog;
+        this.userCatalog = userCatalog;
     }
 
     public void checkOutObject(int positionOfTheObjectCheckedOut, String libraryNumber) {
@@ -24,5 +27,14 @@ public class Librarian {
 
     public ObjectCatalog getObjectCatalog() {
         return objectCatalog;
+    }
+
+
+    public boolean isAuthorizedUser(String libraryNumberExpected, String passwordExpected) {
+        for(User user: userCatalog.getUsers()) {
+            System.out.println(user);
+            if(user.getLibraryNumber().equals(libraryNumberExpected) && user.getPassword().equals(passwordExpected)) return true;
+        }
+        return false;
     }
 }

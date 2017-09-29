@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserCatalog {
-    public List<User> users = new ArrayList();
+    public List<User> users;
 
     public List<User> getUsers() {
         return users;
