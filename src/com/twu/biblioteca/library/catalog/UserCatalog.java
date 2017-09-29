@@ -9,7 +9,6 @@ public class UserCatalog {
     public List<User> users = new ArrayList();
 
     public List<User> getUsers() {
-        users.add(new User("my library number", "my password"));
         return users;
     }
 
