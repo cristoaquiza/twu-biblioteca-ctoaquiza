@@ -2,6 +2,7 @@ package com.twu.biblioteca.utils;
 
 import com.twu.biblioteca.library.Librarian;
 import com.twu.biblioteca.library.catalog.ObjectCatalog;
+import com.twu.biblioteca.library.catalog.UserCatalog;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,11 +15,12 @@ public class MenuTest {
     private Menu menu;
     private ObjectCatalog objectCatalog;
     private Librarian librarian;
+    UserCatalog userCatalog;
 
     @Before
     public final void setUp() {
         objectCatalog = new ObjectCatalog();
-        librarian = new Librarian(objectCatalog);
+        librarian = new Librarian(objectCatalog, userCatalog);
         menu = new Menu(librarian);
     }
 

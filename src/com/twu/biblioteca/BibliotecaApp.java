@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.library.Librarian;
 import com.twu.biblioteca.library.catalog.ObjectCatalog;
 import com.twu.biblioteca.library.ObjectToRent;
+import com.twu.biblioteca.library.catalog.UserCatalog;
 import com.twu.biblioteca.library.objectsToRent.Book;
 import com.twu.biblioteca.library.objectsToRent.Movie;
 import com.twu.biblioteca.utils.Menu;
@@ -17,8 +18,9 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         ObjectCatalog objectCatalog = new ObjectCatalog();
+        UserCatalog userCatalog = new UserCatalog();
         objectCatalog.uploadObjectsToRent(getMyListOfObjectsToRentExisting());
-        Librarian librarian = new Librarian(objectCatalog);
+        Librarian librarian = new Librarian(objectCatalog, userCatalog);
         Menu menu = new Menu(librarian);
         System.out.println(ObjectCatalog.getWelcomeMessage());
         String optionNumber = "";

@@ -1,6 +1,7 @@
 package com.twu.biblioteca.library;
 
 import com.twu.biblioteca.library.catalog.ObjectCatalog;
+import com.twu.biblioteca.library.catalog.UserCatalog;
 import com.twu.biblioteca.library.objectsToRent.Book;
 import com.twu.biblioteca.library.objectsToRent.Movie;
 import org.junit.Before;
@@ -18,6 +19,7 @@ public class LibrarianTest {
     ObjectCatalog objectCatalog;
     Librarian librarian;
     String libraryNumberOfLessee;
+    UserCatalog userCatalog;
 
     @Before
     public void setUp() {
@@ -26,7 +28,7 @@ public class LibrarianTest {
         currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
         currentObjectsToRent.add(new Movie("Movie 0", 1991, "Director 1",5.4));
         objectCatalog.uploadObjectsToRent(currentObjectsToRent);
-        librarian = new Librarian(objectCatalog);
+        librarian = new Librarian(objectCatalog, userCatalog);
         libraryNumberOfLessee = "123-4567";
     }
 

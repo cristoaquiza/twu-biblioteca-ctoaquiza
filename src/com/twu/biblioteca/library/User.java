@@ -1,8 +1,13 @@
 package com.twu.biblioteca.library;
 
 public class User {
-    private String libraryNumber = new String();
-    private String password = new String();
+    private String libraryNumber;
+    private String password;
+
+    public User(String libraryNumber, String password) {
+        this.libraryNumber = libraryNumber;
+        this.password = password;
+    }
 
     public String getLibraryNumber() {
         return libraryNumber;
