@@ -64,14 +64,11 @@ public class Menu {
     private int getPositionOfTheObjectInTheListFromInput() {
         Scanner read;
         String stringOfNumberInTheListOfObject;
-        int positionOfTheObjectInTheList;
         System.out.println("Enter the object number: ");
         read = new Scanner(System.in);
         stringOfNumberInTheListOfObject = read.nextLine();
         try {
-            Integer.parseInt(stringOfNumberInTheListOfObject);
-            positionOfTheObjectInTheList = Integer.parseInt(stringOfNumberInTheListOfObject);
-            return positionOfTheObjectInTheList;
+            return Integer.parseInt(stringOfNumberInTheListOfObject) - 1;
         } catch (NumberFormatException ex) {
             return -1;
         }
