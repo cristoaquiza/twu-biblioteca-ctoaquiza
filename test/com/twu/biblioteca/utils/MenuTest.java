@@ -1,8 +1,7 @@
 package com.twu.biblioteca.utils;
 
 import com.twu.biblioteca.library.Librarian;
-import com.twu.biblioteca.library.Library;
-import com.twu.biblioteca.utils.Menu;
+import com.twu.biblioteca.library.ObjectsCatalog;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,13 +12,13 @@ import static org.junit.Assert.assertTrue;
 
 public class MenuTest {
     private Menu menu;
-    private Library library;
+    private ObjectsCatalog objectsCatalog;
     private Librarian librarian;
 
     @Before
     public final void setUp() {
-        library = new Library();
-        librarian = new Librarian(library);
+        objectsCatalog = new ObjectsCatalog();
+        librarian = new Librarian(objectsCatalog);
         menu = new Menu(librarian);
     }
 

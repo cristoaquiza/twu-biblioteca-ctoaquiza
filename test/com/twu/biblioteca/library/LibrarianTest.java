@@ -14,18 +14,18 @@ import static org.junit.Assert.assertTrue;
 
 public class LibrarianTest {
 
-    Library library;
+    ObjectsCatalog objectsCatalog;
     Librarian librarian;
     String libraryNumberOfLessee;
 
     @Before
     public void setUp() {
-        library = new Library();
+        objectsCatalog = new ObjectsCatalog();
         List<ObjectToRent> currentObjectsToRent= new ArrayList();
         currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
         currentObjectsToRent.add(new Movie("Movie 0", 1991, "Director 1",5.4));
-        library.uploadObjectsToRent(currentObjectsToRent);
-        librarian = new Librarian(library);
+        objectsCatalog.uploadObjectsToRent(currentObjectsToRent);
+        librarian = new Librarian(objectsCatalog);
         libraryNumberOfLessee = "123-4567";
     }
 
@@ -33,7 +33,7 @@ public class LibrarianTest {
     public void testTheObjectChangeItsCheckoutStateFromFalseToTrueWhenCheckedBook() {
         int positionOfTheObjectYouWantToCheckOut = 1;
         librarian.checkOutObject(positionOfTheObjectYouWantToCheckOut, libraryNumberOfLessee);
-        ObjectToRent objectCheckedOut = librarian.getLibrary().getObjectsToRent().get(positionOfTheObjectYouWantToCheckOut);
+        ObjectToRent objectCheckedOut = librarian.getObjectsCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToCheckOut);
         assertTrue("failure - the state of object should be checked out (true)", objectCheckedOut.isCheckedOut());
     }
 
@@ -41,7 +41,7 @@ public class LibrarianTest {
     public void testTheObjectChangeItsCheckoutStateFromTrueToFalseWhenReturnBook() {
         int positionOfTheObjectYouWantToReturn = 1;
         librarian.returnObject(positionOfTheObjectYouWantToReturn);
-        ObjectToRent objectCheckedOut = librarian.getLibrary().getObjectsToRent().get(positionOfTheObjectYouWantToReturn);
+        ObjectToRent objectCheckedOut = librarian.getObjectsCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToReturn);
         assertFalse("failure - the state of object should be checked out (false)", objectCheckedOut.isCheckedOut());
     }
 
@@ -49,7 +49,7 @@ public class LibrarianTest {
     public void testTheCheckOutActionSetALibraryNumberInTheRentedObject() {
         int positionOfTheBookYouWantToCheckOut = 0;
         librarian.checkOutObject(positionOfTheBookYouWantToCheckOut, libraryNumberOfLessee);
-        ObjectToRent rentedObject = librarian.getLibrary().getObjectsToRent().get(positionOfTheBookYouWantToCheckOut);
+        ObjectToRent rentedObject = librarian.getObjectsCatalog().getObjectsToRent().get(positionOfTheBookYouWantToCheckOut);
         assertEquals(rentedObject.getLibraryNumberOfLessee(), libraryNumberOfLessee);
     }
 }
