@@ -1,5 +1,7 @@
 package com.twu.biblioteca.library;
 
+import com.twu.biblioteca.library.catalog.ObjectCatalog;
+
 public class Librarian {
     private ObjectCatalog objectCatalog;
     public Librarian(ObjectCatalog objectCatalog) {

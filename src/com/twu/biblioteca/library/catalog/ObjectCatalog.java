@@ -1,4 +1,6 @@
-package com.twu.biblioteca.library;
+package com.twu.biblioteca.library.catalog;
+
+import com.twu.biblioteca.library.ObjectToRent;
 
 import java.util.List;
 

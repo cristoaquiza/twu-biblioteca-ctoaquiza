@@ -1,5 +1,6 @@
 package com.twu.biblioteca.library;
 
+import com.twu.biblioteca.library.catalog.ObjectCatalog;
 import com.twu.biblioteca.library.objectsToRent.Book;
 import com.twu.biblioteca.library.objectsToRent.Movie;
 import org.junit.Before;
