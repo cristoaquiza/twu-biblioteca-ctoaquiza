@@ -7,11 +7,15 @@ public class Librarian {
     }
 
     public void checkOutObject(int positionOfTheObjectCheckedOut) {
-        getLibrary().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(true);
+        setCheckedOutFieldOfTheObject(positionOfTheObjectCheckedOut, true);
     }
 
     public void returnObject(int positionOfTheObjectReturned) {
-        getLibrary().getObjectsToRent().get(positionOfTheObjectReturned).setCheckedOut(false);
+        setCheckedOutFieldOfTheObject(positionOfTheObjectReturned, false);
+    }
+
+    private void setCheckedOutFieldOfTheObject(int positionOfTheObjectCheckedOut, boolean checkedOut) {
+        getLibrary().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(checkedOut);
     }
 
     public Library getLibrary() {
