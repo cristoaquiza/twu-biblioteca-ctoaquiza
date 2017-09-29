@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.library.Librarian;
+import com.twu.biblioteca.library.User;
 import com.twu.biblioteca.library.catalog.ObjectCatalog;
 import com.twu.biblioteca.library.ObjectToRent;
 import com.twu.biblioteca.library.catalog.UserCatalog;
@@ -20,15 +21,26 @@ public class BibliotecaApp {
         ObjectCatalog objectCatalog = new ObjectCatalog();
         UserCatalog userCatalog = new UserCatalog();
         objectCatalog.uploadObjectsToRent(getMyListOfObjectsToRentExisting());
+        userCatalog.uploadUsers(getMyListOfUsersRegistered());
         Librarian librarian = new Librarian(objectCatalog, userCatalog);
+        System.out.println("Enter your library number: ");
+        Scanner read = new Scanner(System.in);
+        String inputLibraryNumber = read.nextLine();
+        System.out.println("Enter your password: ");
+        read = new Scanner(System.in);
+        String inputPassword = read.nextLine();
+        if(!librarian.isAuthorizedUser(inputLibraryNumber, inputPassword)) {
+            System.out.println("User no authorized");
+            System.exit(0);
+        }
         Menu menu = new Menu(librarian);
         System.out.println(ObjectCatalog.getWelcomeMessage());
         String optionNumber = "";
         do {
             System.out.println(menu.printMenu());
             System.out.println("Enter the option number to do: ");
-            Scanner read = new Scanner(System.in);
-            optionNumber = read.nextLine();
+            Scanner readMenu = new Scanner(System.in);
+            optionNumber = readMenu.nextLine();
             if (isTheOptionEnteredOnTheRangeOfMenuOptions(optionNumber)) {
                 menu.doTheChoice(utils.parseInputToInt(optionNumber));
             }
@@ -36,6 +48,13 @@ public class BibliotecaApp {
                 System.out.println("Select a valid option!");
             }
         } while (isTheOptionEnteredNonZero(optionNumber));
+    }
+
+    private static List<User> getMyListOfUsersRegistered() {
+        List<User> usersRegistered = new ArrayList();
+        usersRegistered.add(new User("123-0000", "asd#fgh123"));
+        usersRegistered.add(new User("123-0001", "qwe#ert123"));
+        return usersRegistered;
     }
 
     private static List<ObjectToRent> getMyListOfObjectsToRentExisting() {
