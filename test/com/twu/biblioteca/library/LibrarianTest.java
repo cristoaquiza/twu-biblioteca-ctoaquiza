@@ -58,11 +58,30 @@ public class LibrarianTest {
     }
 
     @Test
+    public void testTheObjectSetItsLibraryNumberOfLesseeWhenCheckedBook() {
+        int positionOfTheObjectYouWantToCheckOut = 1;
+        librarian.checkOutObject(positionOfTheObjectYouWantToCheckOut, libraryNumberOfLessee);
+        ObjectToRent objectCheckedOut = librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToCheckOut);
+        assertEquals(objectCheckedOut.getLibraryNumberOfLessee(), libraryNumberOfLessee);
+    }
+
+    @Test
     public void testTheObjectChangeItsCheckoutStateFromTrueToFalseWhenReturnBook() {
         int positionOfTheObjectYouWantToReturn = 1;
+        librarian.checkOutObject(positionOfTheObjectYouWantToReturn, libraryNumberOfLessee);
         librarian.returnObject(positionOfTheObjectYouWantToReturn);
         ObjectToRent objectCheckedOut = librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToReturn);
         assertFalse("failure - the state of object should be checked out (false)", objectCheckedOut.isCheckedOut());
+    }
+
+    @Test
+    public void testTheObjectEmptyItsLibraryNumberOfLesseeWhenReturnBook() {
+        int positionOfTheObjectYouWantToReturn = 1;
+        String emptyToString = "";
+        librarian.checkOutObject(positionOfTheObjectYouWantToReturn, libraryNumberOfLessee);
+        librarian.returnObject(positionOfTheObjectYouWantToReturn);
+        ObjectToRent objectReturned = librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToReturn);
+        assertEquals(objectReturned.getLibraryNumberOfLessee(), emptyToString);
     }
 
     @Test

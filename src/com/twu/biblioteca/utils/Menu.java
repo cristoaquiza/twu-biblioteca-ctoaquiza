@@ -1,7 +1,6 @@
 package com.twu.biblioteca.utils;
 
 import com.twu.biblioteca.library.Librarian;
-import com.twu.biblioteca.library.catalog.ObjectCatalog;
 
 import java.util.Scanner;
 

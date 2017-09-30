@@ -22,7 +22,9 @@ public class Librarian {
     }
 
     public void returnObject(int positionOfTheObjectReturned) {
+        String emptyToString = "";
         setCheckedOutFieldOfTheObject(positionOfTheObjectReturned, false);
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectReturned).setLibraryNumberOfLessee(emptyToString);
     }
 
     private void setCheckedOutFieldOfTheObject(int positionOfTheObjectCheckedOut, boolean checkedOut) {
@@ -32,7 +34,6 @@ public class Librarian {
     public ObjectCatalog getObjectCatalog() {
         return objectCatalog;
     }
-
 
     public boolean isAuthorizedUser(String libraryNumberExpected, String passwordExpected) {
         for(User user: userCatalog.getUsers()) {
