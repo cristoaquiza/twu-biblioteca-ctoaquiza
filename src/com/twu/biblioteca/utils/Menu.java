@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Menu {
 
     private Librarian librarian;
-    String libraryNumber = "123-4567";
 
     public Menu(Librarian librarian) {
         this.librarian = librarian;
@@ -25,7 +24,7 @@ public class Menu {
         return menu;
     }
 
-    public void doTheChoice(int optionNumber) {
+    public void doTheChoice(int optionNumber, String libraryNumber) {
         int positionOfTheObjectInTheList;
         switch (optionNumber) {
             case 1:
@@ -33,7 +32,7 @@ public class Menu {
                 break;
             case 2:
                 positionOfTheObjectInTheList = getPositionOfTheObjectInTheListFromInput();
-                if(positionOfTheObjectInTheList < 0) {
+                if(isNotYourInputANumber(positionOfTheObjectInTheList)) {
                     System.out.println("NOTIFICATION: Select a valid option!");
                     break;
                 }
@@ -46,7 +45,7 @@ public class Menu {
                 break;
             case 3:
                 positionOfTheObjectInTheList = getPositionOfTheObjectInTheListFromInput();
-                if(positionOfTheObjectInTheList < 0) {
+                if(isNotYourInputANumber(positionOfTheObjectInTheList)) {
                     System.out.println("NOTIFICATION: Select a valid option!");
                     break;
                 }
@@ -58,6 +57,10 @@ public class Menu {
                 System.out.println("NOTIFICATION: Thank you for returning the rented product.");
                 break;
         }
+    }
+
+    private boolean isNotYourInputANumber(int positionOfTheObjectInTheList) {
+        return positionOfTheObjectInTheList < 0;
     }
 
     private int getPositionOfTheObjectInTheListFromInput() {

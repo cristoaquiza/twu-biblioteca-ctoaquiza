@@ -23,6 +23,7 @@ public class BibliotecaApp {
         objectCatalog.uploadObjectsToRent(getMyListOfObjectsToRentExisting());
         userCatalog.uploadUsers(getMyListOfUsersRegistered());
         Librarian librarian = new Librarian(objectCatalog, userCatalog);
+
         System.out.println("Enter your library number: ");
         Scanner read = new Scanner(System.in);
         String inputLibraryNumber = read.nextLine();
@@ -30,24 +31,29 @@ public class BibliotecaApp {
         read = new Scanner(System.in);
         String inputPassword = read.nextLine();
         if(!librarian.isAuthorizedUser(inputLibraryNumber, inputPassword)) {
-            System.out.println("User no authorized");
-            System.exit(0);
+            refuseUserAccess();
         }
+
         Menu menu = new Menu(librarian);
         System.out.println(Librarian.getWelcomeMessage());
-        String optionNumber = "";
+        String optionNumber;
         do {
             System.out.println(menu.getMenuToString());
             System.out.println("Enter the option number to do: ");
             Scanner readMenu = new Scanner(System.in);
             optionNumber = readMenu.nextLine();
             if (isTheOptionEnteredOnTheRangeOfMenuOptions(optionNumber)) {
-                menu.doTheChoice(utils.parseInputToInt(optionNumber));
+                menu.doTheChoice(utils.parseInputToInt(optionNumber), inputLibraryNumber);
             }
             else {
                 System.out.println("Select a valid option!");
             }
         } while (isTheOptionEnteredNonZero(optionNumber));
+    }
+
+    private static void refuseUserAccess() {
+        System.out.println("ERROR 401: User unauthorized");
+        System.exit(0);
     }
 
     private static List<User> getMyListOfUsersRegistered() {
