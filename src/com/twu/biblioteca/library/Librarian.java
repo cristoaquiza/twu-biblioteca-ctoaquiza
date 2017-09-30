@@ -36,9 +36,12 @@ public class Librarian {
 
     public boolean isAuthorizedUser(String libraryNumberExpected, String passwordExpected) {
         for(User user: userCatalog.getUsers()) {
-            System.out.println(user);
-            if(user.getLibraryNumber().equals(libraryNumberExpected) && user.getPassword().equals(passwordExpected)) return true;
+            if(libraryNumberAndPasswordMatch(libraryNumberExpected, passwordExpected, user)) return true;
         }
         return false;
+    }
+
+    private boolean libraryNumberAndPasswordMatch(String libraryNumberExpected, String passwordExpected, User user) {
+        return user.getLibraryNumber().equals(libraryNumberExpected) && user.getPassword().equals(passwordExpected);
     }
 }

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f79900e-06f1-4bcc-a6cd-d5e7c590fb08" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/utils/Menu.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/utils/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/utils/MenuTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/utils/MenuTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/library/Librarian.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/library/Librarian.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,14 +31,24 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/utils/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-621">
-              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="185">
+              <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Librarian.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/library/Librarian.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="43" column="44" lean-forward="false" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/utils/MenuTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
@@ -107,9 +117,9 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/library/catalog/ObjectCatalog.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/library/LibrarianTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
-        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/library/Librarian.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/utils/Menu.java" />
         <option value="$PROJECT_DIR$/test/com/twu/biblioteca/utils/MenuTest.java" />
+        <option value="$PROJECT_DIR$/src/com/twu/biblioteca/library/Librarian.java" />
       </list>
     </option>
   </component>
@@ -498,9 +508,6 @@
     <history-entry file="LibrarianTest - 2017.09.30 at 05h 14m 03s.xml">
       <configuration name="LibrarianTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LibrarianTest_testAskIfTheUserIsNotAuthorizedToSignInWithInCorrectLibraryNumber - 2017.09.29 at 16h 54m 26s.xml">
-      <configuration name="LibrarianTest.testAskIfTheUserIsNotAuthorizedToSignInWithInCorrectLibraryNumber" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LibrarianTest_testAskIfTheUserIsNotAuthorizedToSignInWithInCorrectLibraryNumber - 2017.09.29 at 16h 55m 21s.xml">
       <configuration name="LibrarianTest.testAskIfTheUserIsNotAuthorizedToSignInWithInCorrectLibraryNumber" configurationId="JUnit" />
     </history-entry>
@@ -511,6 +518,9 @@
       <configuration name="LibrarianTest.testAskIfTheUserIsNotAuthorizedToSignInWithInCorrectPassword" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MenuTest - 2017.09.30 at 05h 23m 29s.xml">
+      <configuration name="MenuTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MenuTest - 2017.09.30 at 05h 25m 45s.xml">
       <configuration name="MenuTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ObjectCatalogTest - 2017.09.29 at 17h 24m 49s.xml">
@@ -926,14 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/library/Librarian.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/library/LibrarianTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -952,18 +954,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/utils/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-621">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/utils/MenuTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/utils/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="68" column="13" lean-forward="true" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/library/Librarian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="43" column="44" lean-forward="false" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
           <folding />
         </state>
       </provider>
