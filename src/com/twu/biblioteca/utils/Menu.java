@@ -7,13 +7,8 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private ObjectCatalog objectCatalog;
     private Librarian librarian;
     String libraryNumber = "123-4567";
-
-    public Menu(ObjectCatalog objectCatalog) {
-        this.objectCatalog = objectCatalog;
-    }
 
     public Menu(Librarian librarian) {
         this.librarian = librarian;

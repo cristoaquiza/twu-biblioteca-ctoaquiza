@@ -12,14 +12,13 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class MenuTest {
-    private Menu menu;
-    private ObjectCatalog objectCatalog;
-    private Librarian librarian;
-    UserCatalog userCatalog;
+    Menu menu;
+    Librarian librarian;
 
     @Before
     public final void setUp() {
-        objectCatalog = new ObjectCatalog();
+        ObjectCatalog objectCatalog = new ObjectCatalog();
+        UserCatalog userCatalog = new UserCatalog();
         librarian = new Librarian(objectCatalog, userCatalog);
         menu = new Menu(librarian);
     }
