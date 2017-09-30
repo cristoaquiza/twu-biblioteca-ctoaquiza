@@ -24,10 +24,12 @@ public class BibliotecaApp {
         userCatalog.uploadUsers(getMyListOfUsersRegistered());
         Librarian librarian = new Librarian(objectCatalog, userCatalog);
 
-        System.out.println("Enter your library number: ");
+        System.out.println(Librarian.getWelcomeMessage());
+        System.out.println("LOGIN USER");
+        System.out.print("Enter your library number: ");
         Scanner read = new Scanner(System.in);
         String inputLibraryNumber = read.nextLine();
-        System.out.println("Enter your password: ");
+        System.out.print("Enter your password: ");
         read = new Scanner(System.in);
         String inputPassword = read.nextLine();
         if(!librarian.isAuthorizedUser(inputLibraryNumber, inputPassword)) {
@@ -35,7 +37,6 @@ public class BibliotecaApp {
         }
 
         Menu menu = new Menu(librarian);
-        System.out.println(Librarian.getWelcomeMessage());
         String optionNumber;
         do {
             System.out.println(menu.getMenuToString());
