@@ -17,18 +17,22 @@ public class Librarian {
     }
 
     public void checkOutObject(int positionOfTheObjectCheckedOut, String libraryNumber) {
-        setCheckedOutFieldOfTheObject(positionOfTheObjectCheckedOut, true);
-        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
+        setCheckedOutFieldOfTheRentalProduct(positionOfTheObjectCheckedOut, true);
+        setLibraryNumberFieldOfTheRentalProduct(positionOfTheObjectCheckedOut, libraryNumber);
     }
 
     public void returnObject(int positionOfTheObjectReturned) {
         String emptyToString = "";
-        setCheckedOutFieldOfTheObject(positionOfTheObjectReturned, false);
-        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectReturned).setLibraryNumberOfLessee(emptyToString);
+        setCheckedOutFieldOfTheRentalProduct(positionOfTheObjectReturned, false);
+        setLibraryNumberFieldOfTheRentalProduct(positionOfTheObjectReturned, emptyToString);
     }
 
-    private void setCheckedOutFieldOfTheObject(int positionOfTheObjectCheckedOut, boolean checkedOut) {
+    private void setCheckedOutFieldOfTheRentalProduct(int positionOfTheObjectCheckedOut, boolean checkedOut) {
         getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(checkedOut);
+    }
+
+    private void setLibraryNumberFieldOfTheRentalProduct(int positionOfTheObjectCheckedOut, String libraryNumber) {
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
     }
 
     public ObjectCatalog getObjectCatalog() {
