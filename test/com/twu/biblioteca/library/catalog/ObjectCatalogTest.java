@@ -24,7 +24,6 @@ public class ObjectCatalogTest {
 
     @Before
     public void setUp() {
-        welcomeMessage = ObjectCatalog.getWelcomeMessage().toLowerCase();
         objectCatalog = new ObjectCatalog();
         currentObjectsToRent= new ArrayList();
         currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
@@ -33,16 +32,6 @@ public class ObjectCatalogTest {
         objectCatalog.uploadObjectsToRent(currentObjectsToRent);
         librarian = new Librarian(objectCatalog, userCatalog);
         libraryNumberOfLessee = "123-4567";
-    }
-
-    @Test
-    public void testThatWelcomeMessageIsNotNull() {
-        assertNotNull("failure - welcomeMessage should be not null", welcomeMessage);
-    }
-
-    @Test
-    public void testWelcomeMessageHasWelcomeWord() {
-        assertThat(welcomeMessage, containsString("welcome"));
     }
 
     @Test

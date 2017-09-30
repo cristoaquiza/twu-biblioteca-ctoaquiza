@@ -34,7 +34,7 @@ public class BibliotecaApp {
             System.exit(0);
         }
         Menu menu = new Menu(librarian);
-        System.out.println(ObjectCatalog.getWelcomeMessage());
+        System.out.println(Librarian.getWelcomeMessage());
         String optionNumber = "";
         do {
             System.out.println(menu.getMenuToString());
@@ -52,6 +52,7 @@ public class BibliotecaApp {
 
     private static List<User> getMyListOfUsersRegistered() {
         List<User> usersRegistered = new ArrayList();
+        usersRegistered.add(new User("000-0000", "000-0000"));
         usersRegistered.add(new User("123-0000", "asd#fgh123"));
         usersRegistered.add(new User("123-0001", "qwe#ert123"));
         return usersRegistered;

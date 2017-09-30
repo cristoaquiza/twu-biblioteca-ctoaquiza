@@ -7,10 +7,6 @@ import java.util.List;
 public class ObjectCatalog {
     private List<ObjectToRent> objectsToRent;
 
-    public static String getWelcomeMessage() {
-        return "Welcome to The Bangalore Public ObjectCatalog Management System\n\t\t___ Biblioteca is available ___";
-    }
-
     public void uploadObjectsToRent(List<ObjectToRent> objectsToRent) {
         this.objectsToRent = objectsToRent;
     }

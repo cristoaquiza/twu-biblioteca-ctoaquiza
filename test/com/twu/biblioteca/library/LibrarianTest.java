@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertFalse;
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.*;
 
 public class LibrarianTest {
 
@@ -22,9 +20,11 @@ public class LibrarianTest {
     Librarian librarian;
     String libraryNumberOfLessee;
     UserCatalog userCatalog;
+    String welcomeMessage;
 
     @Before
     public void setUp() {
+        welcomeMessage = Librarian.getWelcomeMessage().toLowerCase();
         objectCatalog = new ObjectCatalog();
         List<ObjectToRent> currentObjectsToRent= new ArrayList();
         currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
@@ -37,6 +37,17 @@ public class LibrarianTest {
         librarian = new Librarian(objectCatalog, userCatalog);
         libraryNumberOfLessee = "123-4567";
     }
+
+    @Test
+    public void testThatWelcomeMessageIsNotNull() {
+        assertNotNull("failure - welcomeMessage should be not null", welcomeMessage);
+    }
+
+    @Test
+    public void testWelcomeMessageHasWelcomeWord() {
+        assertThat(welcomeMessage, containsString("welcome"));
+    }
+
 
     @Test
     public void testTheObjectChangeItsCheckoutStateFromFalseToTrueWhenCheckedBook() {

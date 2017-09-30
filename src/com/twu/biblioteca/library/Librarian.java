@@ -12,6 +12,10 @@ public class Librarian {
         this.userCatalog = userCatalog;
     }
 
+    public static String getWelcomeMessage() {
+        return "Welcome to The Bangalore Public Library Management System\n\t\t--- BIBLIOTECA IS AVAILABLE ---";
+    }
+
     public void checkOutObject(int positionOfTheObjectCheckedOut, String libraryNumber) {
         setCheckedOutFieldOfTheObject(positionOfTheObjectCheckedOut, true);
         getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
