@@ -27,8 +27,7 @@ public class LibrarianTest {
         welcomeMessage = Librarian.getWelcomeMessage().toLowerCase();
         objectCatalog = new ObjectCatalog();
         List<ObjectToRent> currentObjectsToRent= new ArrayList();
-        currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
-        currentObjectsToRent.add(new Movie("Movie 0", 1991, "Director 1",5.4));
+        currentObjectsToRent.add(new Book("Book 1", "Author 1", 1991));
         objectCatalog.uploadObjectsToRent(currentObjectsToRent);
         userCatalog = new UserCatalog();
         List<User> currentUsers= new ArrayList();
@@ -51,7 +50,7 @@ public class LibrarianTest {
 
     @Test
     public void testTheObjectChangeItsCheckoutStateFromFalseToTrueWhenCheckedBook() {
-        int positionOfTheObjectYouWantToCheckOut = 1;
+        int positionOfTheObjectYouWantToCheckOut = 0;
         librarian.checkOutObject(positionOfTheObjectYouWantToCheckOut, libraryNumberOfLessee);
         ObjectToRent objectCheckedOut = librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToCheckOut);
         assertTrue("failure - the state of object should be checked out (true)", objectCheckedOut.isCheckedOut());
@@ -59,7 +58,7 @@ public class LibrarianTest {
 
     @Test
     public void testTheObjectSetItsLibraryNumberOfLesseeWhenCheckedBook() {
-        int positionOfTheObjectYouWantToCheckOut = 1;
+        int positionOfTheObjectYouWantToCheckOut = 0;
         librarian.checkOutObject(positionOfTheObjectYouWantToCheckOut, libraryNumberOfLessee);
         ObjectToRent objectCheckedOut = librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToCheckOut);
         assertEquals(objectCheckedOut.getLibraryNumberOfLessee(), libraryNumberOfLessee);
@@ -67,7 +66,7 @@ public class LibrarianTest {
 
     @Test
     public void testTheObjectChangeItsCheckoutStateFromTrueToFalseWhenReturnBook() {
-        int positionOfTheObjectYouWantToReturn = 1;
+        int positionOfTheObjectYouWantToReturn = 0;
         librarian.checkOutObject(positionOfTheObjectYouWantToReturn, libraryNumberOfLessee);
         librarian.returnObject(positionOfTheObjectYouWantToReturn);
         ObjectToRent objectCheckedOut = librarian.getObjectCatalog().getObjectsToRent().get(positionOfTheObjectYouWantToReturn);
@@ -76,7 +75,7 @@ public class LibrarianTest {
 
     @Test
     public void testTheObjectEmptyItsLibraryNumberOfLesseeWhenReturnBook() {
-        int positionOfTheObjectYouWantToReturn = 1;
+        int positionOfTheObjectYouWantToReturn = 0;
         String emptyToString = "";
         librarian.checkOutObject(positionOfTheObjectYouWantToReturn, libraryNumberOfLessee);
         librarian.returnObject(positionOfTheObjectYouWantToReturn);

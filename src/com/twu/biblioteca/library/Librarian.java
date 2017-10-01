@@ -17,14 +17,13 @@ public class Librarian {
     }
 
     public void checkOutObject(int positionOfTheObjectCheckedOut, String libraryNumber) {
-        setCheckedOutFieldOfTheRentalProduct(positionOfTheObjectCheckedOut, true);
-        setLibraryNumberFieldOfTheRentalProduct(positionOfTheObjectCheckedOut, libraryNumber);
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(true);
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
     }
 
     public void returnObject(int positionOfTheObjectReturned) {
-        String emptyToString = "";
-        setCheckedOutFieldOfTheRentalProduct(positionOfTheObjectReturned, false);
-        setLibraryNumberFieldOfTheRentalProduct(positionOfTheObjectReturned, emptyToString);
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectReturned).setCheckedOut(false);
+        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectReturned).setLibraryNumberOfLessee("");
     }
 
     public UserCatalog getUserCatalog() {
@@ -35,29 +34,25 @@ public class Librarian {
         return objectCatalog;
     }
 
-    private void setCheckedOutFieldOfTheRentalProduct(int positionOfTheObjectCheckedOut, boolean checkedOut) {
-        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(checkedOut);
-    }
-
-    private void setLibraryNumberFieldOfTheRentalProduct(int positionOfTheObjectCheckedOut, String libraryNumber) {
-        getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
-    }
-
     public boolean isAuthorizedUser(String libraryNumberExpected, String passwordExpected) {
         for(User user: userCatalog.getUsers()) {
-            if(libraryNumberAndPasswordMatch(libraryNumberExpected, passwordExpected, user)) return true;
+            if(isTheLibraryNumberMatching(libraryNumberExpected, user) && isThePasswordMatching(passwordExpected, user)) return true;
         }
         return false;
     }
 
-    private boolean libraryNumberAndPasswordMatch(String libraryNumberExpected, String passwordExpected, User user) {
-        return user.getLibraryNumber().equals(libraryNumberExpected) && user.getPassword().equals(passwordExpected);
-    }
-
     public User findUserInCatalogByLibrarianNumber(String libraryNumber) {
         for(User user: userCatalog.getUsers()) {
-            if(user.getLibraryNumber().equals(libraryNumber)) return user;
+            if(isTheLibraryNumberMatching(libraryNumber, user)) return user;
         }
         return null;
+    }
+
+    private boolean isTheLibraryNumberMatching(String libraryNumberExpected, User user) {
+        return user.getLibraryNumber().equals(libraryNumberExpected);
+    }
+
+    private boolean isThePasswordMatching(String passwordExpected, User user) {
+        return user.getPassword().equals(passwordExpected);
     }
 }
