@@ -21,7 +21,6 @@ public class UserCatalogTest {
         userCatalog = new UserCatalog();
         currentUsers = new ArrayList();
         currentUsers.add(new User("name1", "email1", "593123123123","123-4567", "password1"));
-        currentUsers.add(new User("name2", "email2", "593123123123","890-1234", "password2"));
         userCatalog.uploadUsers(currentUsers);
     }
 

@@ -16,7 +16,6 @@ import static org.junit.Assert.*;
 public class ObjectCatalogTest {
 
     ObjectCatalog objectCatalog;
-    String welcomeMessage;
     List<ObjectToRent> currentObjectsToRent;
     Librarian librarian;
     String libraryNumberOfLessee;
@@ -27,11 +26,9 @@ public class ObjectCatalogTest {
         objectCatalog = new ObjectCatalog();
         currentObjectsToRent= new ArrayList();
         currentObjectsToRent.add(new Book("Book 0", "Author 1", 1991));
-        currentObjectsToRent.add(new Book("Book 1", "Author 2", 1992));
         currentObjectsToRent.add(new Movie("Movie 1", 1990, "Director 1", 5));
         objectCatalog.uploadObjectsToRent(currentObjectsToRent);
         librarian = new Librarian(objectCatalog, userCatalog);
-        libraryNumberOfLessee = "123-4567";
     }
 
     @Test
@@ -54,7 +51,7 @@ public class ObjectCatalogTest {
 
     @Test
     public void testObjectsListItemIsAnInstanceOfMovie() {
-        int indexOfMovie1 = 2;
+        int indexOfMovie1 = 1;
         assertThat(objectCatalog.getObjectsToRent().get(indexOfMovie1), instanceOf(Movie.class));
     }
 
@@ -62,18 +59,17 @@ public class ObjectCatalogTest {
     public void testGetListOfObjectsToRentReadyToPrint() {
         String printing = objectCatalog.toString();
         assertThat(printing, containsString("Book 0"));
-        assertThat(printing, containsString("Book 1"));
         assertThat(printing, containsString("Movie 1"));
     }
 
     @Test
     public void testUploadObjectsToRentFromListAsAParameter() {
-        String expectedBook = "Book 0";
+        String expectedTitleOfBook = "Book 0";
+        String expectedTitleOfMovie = "Movie 1";
         Book currentBook = (Book) currentObjectsToRent.get(0);
-        String expectedMovie = "Movie 1";
-        Movie currentMovie = (Movie) currentObjectsToRent.get(2);
-        assertEquals("failure - movie of objectsToRent should be equals", currentMovie.getName(), expectedMovie);
-        assertEquals("failure - book of objectsToRent should be equals", currentBook.getTitle(), expectedBook);
+        Movie currentMovie = (Movie) currentObjectsToRent.get(1);
+        assertEquals("failure - movie of objectsToRent should be equals", currentMovie.getName(), expectedTitleOfMovie);
+        assertEquals("failure - book of objectsToRent should be equals", currentBook.getTitle(), expectedTitleOfBook);
     }
 
     @Test

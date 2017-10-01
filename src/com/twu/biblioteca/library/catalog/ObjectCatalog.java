@@ -18,13 +18,13 @@ public class ObjectCatalog {
 
     @Override
     public String toString() {
-        String objectsToString = "\n\t--- LIST OF OBJECTS TO RENT ---\n";
+        String objectsToString = "\t--- LIST OF OBJECTS TO RENT ---\n";
         int enumerator = 1;
         for (ObjectToRent objectToRent: this.objectsToRent) {
             if(!objectToRent.isCheckedOut()) objectsToString += enumerator + ". " + objectToRent.toString();
             enumerator++;
         }
-        objectsToString += "\t--- END LIST OF OBJECTS TO RENT ---\n\n\n";
+        objectsToString += "\t--- END LIST OF OBJECTS TO RENT ---\n";
         return objectsToString;
     }
 }
