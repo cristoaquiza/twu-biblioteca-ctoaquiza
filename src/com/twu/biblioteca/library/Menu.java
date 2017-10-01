@@ -20,7 +20,7 @@ public class Menu {
     }
 
     public String getMenuToString() {
-        return "\n\t---- MENU ----\n" +
+        return "\t---- MENU ----\n" +
                 "[1] List Objects to rent\t" +
                 "[2] Check out Object\t" +
                 "[3] Return Object\t" +
