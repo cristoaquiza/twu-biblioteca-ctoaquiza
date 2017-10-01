@@ -49,6 +49,11 @@ public class MenuTest {
     }
 
     @Test
+    public void testTheMenuHasTheOptionViewUserInformation() {
+        assertThat(menu.getMenuToString().toLowerCase(), containsString("view user information"));
+    }
+
+    @Test
     public void testMenuHasALibrarianAsAField() {
         assertThat(menu.getLibrarian(), instanceOf(Librarian.class));
     }

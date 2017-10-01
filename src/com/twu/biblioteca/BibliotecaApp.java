@@ -59,9 +59,9 @@ public class BibliotecaApp {
 
     private static List<User> getMyListOfUsersRegistered() {
         List<User> usersRegistered = new ArrayList();
-        usersRegistered.add(new User("000-0000", "000-0000"));
-        usersRegistered.add(new User("123-0000", "asd#fgh123"));
-        usersRegistered.add(new User("123-0001", "qwe#ert123"));
+        usersRegistered.add(new User("John Smith", "jsmith@email.com", "5932857045","000-0000", "000-0000"));
+        usersRegistered.add(new User("John Cow", "jcow@email.com", "5932857046","123-0000", "asd#fgh123"));
+        usersRegistered.add(new User("John Run", "jrunh@email.com", "5932857047","123-0001", "qwe#ert123"));
         return usersRegistered;
     }
 
@@ -83,6 +83,6 @@ public class BibliotecaApp {
     }
 
     private static boolean isTheOptionEnteredOnTheRangeOfMenuOptions(String optionNumber) {
-        return utils.parseInputToInt(optionNumber) >= 0 && utils.parseInputToInt(optionNumber) <= 3;
+        return utils.parseInputToInt(optionNumber) >= 0 && utils.parseInputToInt(optionNumber) <= 4;
     }
 }

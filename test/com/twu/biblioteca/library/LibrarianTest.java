@@ -32,7 +32,7 @@ public class LibrarianTest {
         objectCatalog.uploadObjectsToRent(currentObjectsToRent);
         userCatalog = new UserCatalog();
         List<User> currentUsers= new ArrayList();
-        currentUsers.add(new User("123-4567", "password1"));
+        currentUsers.add(new User("name1", "email1", "593123123123","123-4567", "password1"));
         userCatalog.uploadUsers(currentUsers);
         librarian = new Librarian(objectCatalog, userCatalog);
         libraryNumberOfLessee = "123-4567";
@@ -111,5 +111,19 @@ public class LibrarianTest {
         String libraryNumberExpected = "123-4567";
         String passwordExpected = "passwordxxx";
         assertFalse("failure - the user should not be authorized (return false)", librarian.isAuthorizedUser(libraryNumberExpected, passwordExpected));
+    }
+
+    @Test
+    public void testGetAnUserFindingByYourLibrarianNumber() {
+        String libraryNumberExpected = "123-4567";
+        User userFound = librarian.findUserInCatalogByLibrarianNumber(libraryNumberExpected);
+        assertNotNull("failure - the user should be found", userFound);
+    }
+
+    @Test
+    public void testGetNullWhenFindingWithBadLibrarianNumber() {
+        String libraryNumberExpected = "xxx-xxxx";
+        User userFound = librarian.findUserInCatalogByLibrarianNumber(libraryNumberExpected);
+        assertNull("failure - the user should be found", userFound);
     }
 }

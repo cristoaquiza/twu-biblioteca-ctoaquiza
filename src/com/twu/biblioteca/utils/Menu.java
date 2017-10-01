@@ -13,14 +13,13 @@ public class Menu {
     }
 
     public String getMenuToString() {
-        String menu = "";
-        menu += "\n\t---- MENU ----\n";
-        menu += "[1] List Objects to rent\t";
-        menu += "[2] Checkout Object\t";
-        menu += "[3] Return Object\t";
-        menu += "[0] Quit\n";
-        menu += "\t--- END MENU ---\n";
-        return menu;
+        return "\n\t---- MENU ----\n" +
+                "[1] List Objects to rent\t" +
+                "[2] Checkout Object\t" +
+                "[3] Return Object\t" +
+                "[4] View User Information\t" +
+                "[0] Quit\n" +
+                "\t--- END MENU ---\n";
     }
 
     public void doTheChoice(int optionNumber, String libraryNumber) {
@@ -54,6 +53,9 @@ public class Menu {
                 }
                 getLibrarian().returnObject(positionOfTheObjectInTheList);
                 System.out.println("NOTIFICATION: Thank you for returning the rented product.");
+                break;
+            case 4:
+                System.out.println(getLibrarian().findUserInCatalogByLibrarianNumber(libraryNumber).toString());
                 break;
         }
     }

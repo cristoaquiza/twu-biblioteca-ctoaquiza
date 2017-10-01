@@ -27,16 +27,20 @@ public class Librarian {
         setLibraryNumberFieldOfTheRentalProduct(positionOfTheObjectReturned, emptyToString);
     }
 
+    public UserCatalog getUserCatalog() {
+        return userCatalog;
+    }
+
+    public ObjectCatalog getObjectCatalog() {
+        return objectCatalog;
+    }
+
     private void setCheckedOutFieldOfTheRentalProduct(int positionOfTheObjectCheckedOut, boolean checkedOut) {
         getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setCheckedOut(checkedOut);
     }
 
     private void setLibraryNumberFieldOfTheRentalProduct(int positionOfTheObjectCheckedOut, String libraryNumber) {
         getObjectCatalog().getObjectsToRent().get(positionOfTheObjectCheckedOut).setLibraryNumberOfLessee(libraryNumber);
-    }
-
-    public ObjectCatalog getObjectCatalog() {
-        return objectCatalog;
     }
 
     public boolean isAuthorizedUser(String libraryNumberExpected, String passwordExpected) {
@@ -48,5 +52,12 @@ public class Librarian {
 
     private boolean libraryNumberAndPasswordMatch(String libraryNumberExpected, String passwordExpected, User user) {
         return user.getLibraryNumber().equals(libraryNumberExpected) && user.getPassword().equals(passwordExpected);
+    }
+
+    public User findUserInCatalogByLibrarianNumber(String libraryNumber) {
+        for(User user: userCatalog.getUsers()) {
+            if(user.getLibraryNumber().equals(libraryNumber)) return user;
+        }
+        return null;
     }
 }
