@@ -1,6 +1,7 @@
-package com.twu.biblioteca.utils;
+package com.twu.biblioteca.library;
 
 import com.twu.biblioteca.library.Librarian;
+import com.twu.biblioteca.library.Menu;
 import com.twu.biblioteca.library.catalog.ObjectCatalog;
 import com.twu.biblioteca.library.catalog.UserCatalog;
 import org.junit.Before;
@@ -24,8 +25,9 @@ public class MenuTest {
     }
 
     @Test
-    public void testThatPrintMenuIsNotEmpty() {
-        assertTrue("failure - the length of menu print should be > 0", menu.getMenuToString().length() > 0);
+    public void testMenuToStringIsNotAEmptyString() {
+        int lengthOfTheMenuToString = menu.getMenuToString().length();
+        assertTrue("failure - the menu print should not be empty", lengthOfTheMenuToString > 0);
     }
 
     @Test

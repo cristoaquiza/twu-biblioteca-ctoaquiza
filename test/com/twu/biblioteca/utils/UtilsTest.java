@@ -1,22 +1,23 @@
 package com.twu.biblioteca.utils;
 
-import com.twu.biblioteca.utils.Utils;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class UtilsTest {
-    private Utils utils;
 
-    @Before
-    public final void setUp() {
-        utils = new Utils();
-    }
     @Test
-    public void testParserStringInputToInt() {
-        assertThat(utils.parseInputToInt("not number"), equalTo(-1));
-        assertThat(utils.parseInputToInt("2"), equalTo(2));
+    public void testConvertFromStringToIntWhenTheInputIsAInt() {
+        String intAsString = "2";
+        int intExpected = 2;
+        assertThat(Utils.convertFromStringToInt(intAsString), equalTo(intExpected));
+    }
+
+    @Test
+    public void testConvertFromStringToIntWhenTheInputIsAString() {
+        String notIntAsString = "not number";
+        int intExpected = -1;
+        assertThat(Utils.convertFromStringToInt(notIntAsString), equalTo(intExpected));
     }
 }

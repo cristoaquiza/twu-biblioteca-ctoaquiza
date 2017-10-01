@@ -7,15 +7,13 @@ import com.twu.biblioteca.library.ObjectToRent;
 import com.twu.biblioteca.library.catalog.UserCatalog;
 import com.twu.biblioteca.library.objectsToRent.Book;
 import com.twu.biblioteca.library.objectsToRent.Movie;
-import com.twu.biblioteca.utils.Menu;
+import com.twu.biblioteca.library.Menu;
 import com.twu.biblioteca.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class BibliotecaApp {
-    private static Utils utils = new Utils();
 
     public static void main(String[] args) {
         ObjectCatalog objectCatalog = new ObjectCatalog();
@@ -23,37 +21,26 @@ public class BibliotecaApp {
         objectCatalog.uploadObjectsToRent(getMyListOfObjectsToRentExisting());
         userCatalog.uploadUsers(getMyListOfUsersRegistered());
         Librarian librarian = new Librarian(objectCatalog, userCatalog);
-
-        System.out.println(Librarian.getWelcomeMessage());
-        System.out.println("LOGIN USER");
-        System.out.print("Enter your library number: ");
-        Scanner read = new Scanner(System.in);
-        String inputLibraryNumber = read.nextLine();
-        System.out.print("Enter your password: ");
-        read = new Scanner(System.in);
-        String inputPassword = read.nextLine();
-        if(!librarian.isAuthorizedUser(inputLibraryNumber, inputPassword)) {
-            refuseUserAccess();
-        }
-
+        Utils.print(Librarian.getWelcomeMessage());
+        Utils.print("LOGIN USER");
+        String libraryNumber = Utils.getAKeyboardInput("Enter your library number: ");
+        String password = Utils.getAKeyboardInput("Enter your password: ");
+        if(!librarian.isAuthorizedUser(libraryNumber, password)) refuseUserAccess();
         Menu menu = new Menu(librarian);
-        String optionNumber;
+        int optionNumber;
         do {
-            System.out.println(menu.getMenuToString());
-            System.out.println("Enter the option number to do: ");
-            Scanner readMenu = new Scanner(System.in);
-            optionNumber = readMenu.nextLine();
-            if (isTheOptionEnteredOnTheRangeOfMenuOptions(optionNumber)) {
-                menu.doTheChoice(utils.parseInputToInt(optionNumber), inputLibraryNumber);
+            Utils.print(menu.getMenuToString());
+            optionNumber = Utils.convertFromStringToInt(Utils.getAKeyboardInput("Enter the option number to do: "));
+            if (!isTheOptionEnteredOnTheRangeOfMenuOptions(optionNumber)) {
+                Utils.printNotification("Select a valid option!");
+                continue;
             }
-            else {
-                System.out.println("Select a valid option!");
-            }
-        } while (isTheOptionEnteredNonZero(optionNumber));
+            menu.performTheChosen(optionNumber, libraryNumber);
+        } while (isNotTheExitOption(optionNumber));
     }
 
     private static void refuseUserAccess() {
-        System.out.println("ERROR 401: User unauthorized");
+        Utils.print("BAD LOGIN, credentials don't match");
         System.exit(0);
     }
 
@@ -78,11 +65,11 @@ public class BibliotecaApp {
         return booksAndMoviesToRent;
     }
 
-    private static boolean isTheOptionEnteredNonZero(String optionNumber) {
-        return utils.parseInputToInt(optionNumber) != 0;
+    private static boolean isNotTheExitOption(int optionNumber) {
+        return optionNumber != Menu.NUMBER_OF_EXIT_OPTION;
     }
 
-    private static boolean isTheOptionEnteredOnTheRangeOfMenuOptions(String optionNumber) {
-        return utils.parseInputToInt(optionNumber) >= 0 && utils.parseInputToInt(optionNumber) <= 4;
+    private static boolean isTheOptionEnteredOnTheRangeOfMenuOptions(int optionNumber) {
+        return optionNumber >= 0 && optionNumber <= 4;
     }
 }
