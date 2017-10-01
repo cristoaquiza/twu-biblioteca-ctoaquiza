@@ -26,10 +26,6 @@ public class Librarian {
         getObjectCatalog().getObjectsToRent().get(positionOfTheObjectReturned).setLibraryNumberOfLessee("");
     }
 
-    public UserCatalog getUserCatalog() {
-        return userCatalog;
-    }
-
     public ObjectCatalog getObjectCatalog() {
         return objectCatalog;
     }
