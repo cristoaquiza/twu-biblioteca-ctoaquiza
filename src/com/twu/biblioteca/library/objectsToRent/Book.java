@@ -8,6 +8,7 @@ public class Book extends ObjectToRent {
     private int year;
 
     public Book(String title, String author, int year) {
+        super();
         this.title = title;
         this.author = author;
         this.year = year;

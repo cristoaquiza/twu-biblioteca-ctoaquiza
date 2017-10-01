@@ -23,16 +23,4 @@ public class ObjectToRentTest {
         assertThat(objectToRent.isCheckedOut(), instanceOf(Boolean.class));
         assertThat(objectToRent.getLibraryNumberOfLessee(), instanceOf(String.class));
     }
-
-    @Test
-    public void testValueOfFieldCheckedOutAfterInitializeWasFalse() {
-        assertFalse("failure - the value of checkedOut for default should be false", objectToRent.isCheckedOut());
-    }
-
-    @Test
-    public void testSetFieldCheckedOutAsTrue() {
-        boolean valueExpectedOfFieldCheckedOut = true;
-        objectToRent.setCheckedOut(valueExpectedOfFieldCheckedOut);
-        assertTrue("failure - the value setting of checkedOut should be true", objectToRent.isCheckedOut());
-    }
 }

@@ -9,6 +9,7 @@ public class Movie extends ObjectToRent {
     private double rating;
 
     public Movie(String name, int year, String director, double rating) {
+        super();
         this.name = name;
         this.year = year;
         this.director = director;
